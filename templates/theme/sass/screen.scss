@@ -1,0 +1,10 @@
+// This is where you put the contents of the main stylesheet for the user's project.
+// It should import your sass stylesheets and demonstrate how to use them.
+@import "partials/base";
+@import "core/base.scss";
+@import "navigation/hlist.scss";
+@import "navigation/vlist.scss";
+@import "screen/screen-PAGE-layout.scss";
+@import "typography/typography.scss";
+@import "typography/ss-standard.scss";
+@import "forms/forms.scss";

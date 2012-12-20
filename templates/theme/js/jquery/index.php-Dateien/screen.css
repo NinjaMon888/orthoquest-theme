@@ -1,0 +1,3312 @@
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * (en) YAML core stylesheet
+ * (de) YAML Basis-Stylesheet
+ *
+ * Don't make any changes in this file!
+ * Your changes should be placed in any css-file in your own stylesheet folder.
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         v4.0
+ * @revision        $Revision: 656 $
+ * @lastmodified    $Date: 2012-01-11 21:27:54 +0100 (Mi, 11 Jan 2012) $
+ */
+@media all {
+  /**
+  * @section CSS-Normalisation Module
+  */
+  /* (en) Global reset of paddings and margins for all HTML elements */
+  /* (de) Globales Zurücksetzen der Innen- und Außenabstände für alle HTML-Elemente */
+  /* line 28, ../sass/core/base.scss */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* (en) Correction:margin/padding reset caused too small select boxes. */
+  /* (de) Korrektur:Das Zurücksetzen der Abstände verursacht zu kleine Selectboxen. */
+  /* line 32, ../sass/core/base.scss */
+  option {
+    padding-left: 0.4em;
+  }
+
+  /* LTR */
+  /* line 33, ../sass/core/base.scss */
+  select {
+    padding: 1px;
+  }
+
+  /**
+  * (en) Global fix of the Italics bugs in IE 5.x and IE 6
+  * (de) Globale Korrektur des Italics Bugs des IE 5.x und IE 6
+  *
+  * @bugfix
+  * @affected   IE 5.x/Win, IE6
+  * @css-for    IE 5.x/Win, IE6
+  * @valid      yes
+  */
+  /* line 44, ../sass/core/base.scss */
+  * html body * {
+    overflow: visible;
+  }
+
+  /* line 46, ../sass/core/base.scss */
+  body {
+    /* (en) Fix for rounding errors when scaling font sizes in older versions of Opera browser */
+    /* (de) Beseitigung von Rundungsfehler beim Skalieren von Schriftgrößen in älteren Opera Versionen */
+    font-size: 100%;
+    /* (en) Standard values for colors and text alignment */
+    /* (de) Vorgabe der Standardfarben und Textausrichtung */
+    background: #fff;
+    color: #000;
+    text-align: left;
+    /* LTR */
+  }
+
+  /* (en) avoid visible outlines on DIV containers in Webkit browsers */
+  /* (de) Vermeidung sichtbarer Outline-Rahmen in Webkit-Browsern */
+  /* line 60, ../sass/core/base.scss */
+  div:target {
+    outline: 0 none;
+  }
+
+  /* (en) HTML 5 - adjusting visual formatting model to block level */
+  /* (en) HTML 5 - Anpassung des visuellen Formatmodells auf Blockelemente */
+  /* line 65, ../sass/core/base.scss */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, nav, section {
+    display: block;
+  }
+
+  /* (en) HTML5 - default media element styles */
+  /* (de) HTML5 - Standard Eigenschaften für Media-Elemente */
+  /* line 73, ../sass/core/base.scss */
+  audio,
+  canvas,
+  video {
+    display: inline-block;
+  }
+
+  /* (en) HTML5 - don't show <audio> element if there aren't controls */
+  /* (de) HTML5 - <audio> ohne Kontrollelemente sollten nicht angezeigt werden */
+  /* line 79, ../sass/core/base.scss */
+  audio:not([controls]) {
+    display: none;
+  }
+
+  /* (en) HTML5 - add missing styling in IE & old FF for hidden attribute  */
+  /* (de) HTML5 - Eigenschaften für das hidden-Attribut in älteren IEs und FF nachrüsten */
+  /* line 85, ../sass/core/base.scss */
+  [hidden] {
+    display: none;
+  }
+
+  /* (en) Clear borders for <fieldset> and <img> elements */
+  /* (de) Rahmen für <fieldset> und <img> Elemente löschen */
+  /* line 91, ../sass/core/base.scss */
+  fieldset, img {
+    border: 0 solid;
+  }
+
+  /* (en) new standard values for lists, blockquote, cite and tables */
+  /* (de) Neue Standardwerte für Listen, Zitate und Tabellen */
+  /* line 95, ../sass/core/base.scss */
+  ul, ol, dl {
+    margin: 0 0 1em 1em;
+  }
+
+  /* LTR */
+  /* line 96, ../sass/core/base.scss */
+  li {
+    line-height: 1.5em;
+    margin-left: 0.8em;
+    /* LTR */
+  }
+
+  /* line 101, ../sass/core/base.scss */
+  dt {
+    font-weight: bold;
+  }
+
+  /* line 102, ../sass/core/base.scss */
+  dd {
+    margin: 0 0 1em 0.8em;
+  }
+
+  /* LTR */
+  /* line 104, ../sass/core/base.scss */
+  blockquote {
+    margin: 0 0 1em 0.8em;
+  }
+
+  /* LTR */
+  /* line 105, ../sass/core/base.scss */
+  q {
+    quotes: none;
+  }
+
+  /* line 108, ../sass/core/base.scss */
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+
+  /* line 110, ../sass/core/base.scss */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+ 	/**
+	* @section Float Handling Module
+	*/
+  /* (en) clearfix method for clearing floats */
+  /* (de) Clearfix-Methode zum Clearen der Float-Umgebungen */
+  /* line 121, ../sass/core/base.scss */
+  .ym-clearfix:before {
+    content: "";
+    display: table;
+  }
+
+  /* line 125, ../sass/core/base.scss */
+  .ym-clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  /* (en) alternative solutions to contain floats */
+  /* (de) Alternative Methoden zum Einschließen von Float-Umgebungen */
+  /* line 136, ../sass/core/base.scss */
+  .ym-contain-dt {
+    display: table;
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* line 137, ../sass/core/base.scss */
+  .ym-contain-oh {
+    overflow: hidden;
+    width: 100%;
+    display: block;
+  }
+
+  /* line 138, ../sass/core/base.scss */
+  .ym-contain-fl {
+    float: left;
+    width: 100%;
+  }
+
+  /**
+  * @section Accessibility Module
+  *
+  * (en) skip links and hidden content
+  * (de) Skip-Links und versteckte Inhalte
+  */
+  /* (en) classes for invisible elements in the base layout */
+  /* (de) Klassen für unsichtbare Elemente im Basislayout */
+  /* line 151, ../sass/core/base.scss */
+  .ym-skip,
+  .ym-hideme,
+  .ym-print {
+    position: absolute;
+    top: -32768px;
+    left: -32768px;
+    /* LTR */
+  }
+
+  /* (en) make skip links visible when using tab navigation */
+  /* (de) Skip-Links für Tab-Navigation sichtbar schalten */
+  /* line 160, ../sass/core/base.scss */
+  .ym-skip:focus,
+  .ym-skip:active {
+    position: static;
+    top: 0;
+    left: 0;
+  }
+
+  /* skiplinks:technical setup */
+  /* line 167, ../sass/core/base.scss */
+  .ym-skiplinks {
+    position: absolute;
+    top: 0px;
+    left: -32768px;
+    z-index: 1000;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  /* line 179, ../sass/core/base.scss */
+  .ym-skiplinks .ym-skip:focus,
+  .ym-skiplinks .ym-skip:active {
+    left: 32768px;
+    outline: 0 none;
+    position: absolute;
+    width: 100%;
+  }
+}
+@media screen, projection {
+  /**
+  * @section Column Module
+  *
+  * default column config:
+  * |-------------------------------|
+  * | col1    | col3      | col2    |
+  * | 20%     | flexible  | 20%     |
+  * |-------------------------------|
+  */
+  /* line 199, ../sass/core/base.scss */
+  .ym-column {
+    display: table;
+    width: 100%;
+  }
+
+  /* line 201, ../sass/core/base.scss */
+  .ym-col1 {
+    float: left;
+    width: 20%;
+  }
+
+  /* line 202, ../sass/core/base.scss */
+  .ym-col2 {
+    float: right;
+    width: 20%;
+  }
+
+  /* line 203, ../sass/core/base.scss */
+  .ym-col3 {
+    width: auto;
+    margin: 0 20%;
+  }
+
+  /* (en) Preparation for absolute positioning within content columns */
+  /* (de) Vorbereitung für absolute Positionierungen innerhalb der Inhaltsspalten */
+  /* line 209, ../sass/core/base.scss */
+  .ym-cbox
+  .ym-cbox-left,
+  .ym-cbox-right {
+    position: relative;
+  }
+
+  /* line 211, ../sass/core/base.scss */
+  .ym-cbox {
+    padding: 0 10px;
+  }
+
+  /* line 212, ../sass/core/base.scss */
+  .ym-cbox-left {
+    padding: 0 10px 0 0;
+  }
+
+  /* line 213, ../sass/core/base.scss */
+  .ym-cbox-right {
+    padding: 0 0 0 10px;
+  }
+
+  /* (en) IE-Clearing:Only used in Internet Explorer, switched on in iehacks.css */
+  /* (de) IE-Clearing:Benötigt nur der Internet Explorer und über iehacks.css zugeschaltet */
+  /* line 217, ../sass/core/base.scss */
+  .ym-ie-clearing {
+    display: none;
+  }
+
+  /**
+  * @section Grid Module
+  *
+  */
+  /* line 224, ../sass/core/base.scss */
+  .ym-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    list-style-type: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* (en) alternative class for optional support of old Mozilla/Netscape browers */
+  /* (de) Alternative Klasse zur optionalen Unterstützung alter Mozilla/Netscape-Brower */
+  /* line 237, ../sass/core/base.scss */
+  .ym-grid-alt {
+    float: left;
+    width: 100%;
+  }
+
+  /* line 239, ../sass/core/base.scss */
+  .ym-gl {
+    float: left;
+    margin: 0;
+  }
+
+  /* line 240, ../sass/core/base.scss */
+  .ym-gr {
+    float: right;
+    margin: 0 0 0 -5px;
+  }
+
+  /* line 242, ../sass/core/base.scss */
+  .ym-g20 {
+    width: 20%;
+  }
+
+  /* line 243, ../sass/core/base.scss */
+  .ym-g40 {
+    width: 40%;
+  }
+
+  /* line 244, ../sass/core/base.scss */
+  .ym-g60 {
+    width: 60%;
+  }
+
+  /* line 245, ../sass/core/base.scss */
+  .ym-g80 {
+    width: 80%;
+  }
+
+  /* line 246, ../sass/core/base.scss */
+  .ym-g25 {
+    width: 25%;
+  }
+
+  /* line 247, ../sass/core/base.scss */
+  .ym-g33 {
+    width: 33.333%;
+  }
+
+  /* line 248, ../sass/core/base.scss */
+  .ym-g50 {
+    width: 50%;
+  }
+
+  /* line 249, ../sass/core/base.scss */
+  .ym-g66 {
+    width: 66.666%;
+  }
+
+  /* line 250, ../sass/core/base.scss */
+  .ym-g75 {
+    width: 75%;
+  }
+
+  /* line 251, ../sass/core/base.scss */
+  .ym-g38 {
+    width: 38.2%;
+  }
+
+  /* line 252, ../sass/core/base.scss */
+  .ym-g62 {
+    width: 61.8%;
+  }
+
+  /* line 254, ../sass/core/base.scss */
+  .ym-gbox {
+    padding: 0 10px;
+  }
+
+  /* line 255, ../sass/core/base.scss */
+  .ym-gbox-left {
+    padding: 0 10px 0 0;
+  }
+
+  /* line 256, ../sass/core/base.scss */
+  .ym-gbox-right {
+    padding: 0 0 0 10px;
+  }
+
+  /* line 258, ../sass/core/base.scss */
+  .ym-equalize {
+    overflow: hidden;
+  }
+
+  /* line 261, ../sass/core/base.scss */
+  .ym-equalize > .ym-gl,
+  .ym-equalize > .ym-gr {
+    display: table-cell;
+    float: none;
+    margin: 0;
+    vertical-align: top;
+  }
+
+  /* line 270, ../sass/core/base.scss */
+  .ym-equalize > * > .ym-gbox,
+  .ym-equalize > * > .ym-gbox-left,
+  .ym-equalize > * > .ym-gbox-right {
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
+  }
+}
+@media all {
+   /**
+	* @section Form Module
+	*
+	* Vertical-Forms - technical base (standard)
+	*
+	* |-------------------------------|
+	* | form                          |
+	* |-------------------------------|
+	* |   label                       |
+	* |   input / select / textarea   |
+	* |-------------------------------|
+	* | /form                         |
+	* |-------------------------------|
+	*
+	* (en) Styling of forms where both label and input/select/textarea are styled with display:block;
+	* (de) Formulargestaltung, bei der sowohl label als auch input/select/textarea mit display:block; gestaltet werden
+	*/
+  /* line 297, ../sass/core/base.scss */
+  .ym-form,
+  .ym-form fieldset {
+    overflow: hidden;
+  }
+
+  /* line 301, ../sass/core/base.scss */
+  .ym-form div
+  .ym-form label,
+  .ym-form .ym-message {
+    position: relative;
+    display: block;
+    /* important for Safari */
+  }
+
+  /* line 306, ../sass/core/base.scss */
+  .ym-form .ym-fbox-check label {
+    display: inline;
+  }
+
+  /* line 311, ../sass/core/base.scss */
+  .ym-form input,
+  .ym-form textarea {
+    cursor: text;
+  }
+
+  /* line 316, ../sass/core/base.scss */
+  .ym-form input[type="checkbox"],
+  .ym-form input[type="radio"],
+  .ym-form select,
+  .ym-form label {
+    cursor: pointer;
+  }
+
+  /* small adjustments for Internet Explorer - all versions */
+  /* line 319, ../sass/core/base.scss */
+  .ym-form textarea {
+    overflow: auto;
+  }
+
+  /* Hiding of hidden fields (otherwise ugly spaces in Firefox) | Versteckte Felder wirklich verstecken (sonst ggf. häßliche Lücken im Firefox) */
+  /* line 322, ../sass/core/base.scss */
+  .ym-form input[type=hidden] {
+    display: none !important;
+  }
+
+  /* force consistant appearance of input[type="search"] elements in all browser  */
+  /* line 325, ../sass/core/base.scss */
+  input[type="search"] {
+    -webkit-appearance: textfield;
+  }
+
+  /* line 328, ../sass/core/base.scss */
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  /* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
+  /* line 336, ../sass/core/base.scss */
+  .ym-form .ym-fbox-text:before,
+  .ym-form .ym-fbox-select:before,
+  .ym-form .ym-fbox-check:before,
+  .ym-form .ym-fbox-button:before {
+    content: "";
+    display: table;
+  }
+
+  /* line 344, ../sass/core/base.scss */
+  .ym-form .ym-fbox-text:after,
+  .ym-form .ym-fbox-select:after,
+  .ym-form .ym-fbox-check:after,
+  .ym-form .ym-fbox-button:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  /* styling standard form elements with 'almost' equal flexible width | Gestaltung der einzelnen Formularelemente mit annähend gleicher Breite */
+  /* line 356, ../sass/core/base.scss */
+  .ym-form select,
+  .ym-form input,
+  .ym-form textarea {
+    display: block;
+    position: relative;
+    width: 58.5%;
+  }
+
+  /* line 362, ../sass/core/base.scss */
+  .ym-form .ym-fbox-check input {
+    display: inline;
+    width: auto;
+  }
+
+  /* Styling of buttons | Gestaltung von Buttons */
+  /* line 368, ../sass/core/base.scss */
+  .ym-form .ym-fbox-button input {
+    display: inline;
+    overflow: visible;
+    /* Fixes IE7 auto-padding bug */
+    width: auto;
+  }
+
+  /* avoid jumping checkboxes & radiobuttons in IE8 */
+  /* line 377, ../sass/core/base.scss */
+  .ym-form .ym-fbox-check input:focus,
+  .ym-form .ym-fbox-check input:hover,
+  .ym-form .ym-fbox-check input:active {
+    border: 0 none;
+  }
+
+  /* Indent Checkbox fields to match label-width | Checkboxen um den gleichen Wert einrücken, wie die Breite der labels */
+  /* line 385, ../sass/core/base.scss */
+  .ym-full .ym-fbox-select select,
+  .ym-full .ym-fbox-text input,
+  .ym-full .ym-fbox-text textarea {
+    width: 94.2%;
+    margin-right: -3px;
+  }
+
+   /**
+	* Columnar forms display - technical base (optional)
+	*
+	* |-------------------------------------------|
+	* | form                                      |
+	* |-------------------------------------------|
+	* |                                           |
+	* |   label   |   input / select / textarea   |
+	* |                                           |
+	* |-------------------------------------------|
+	* | /form                                     |
+	* |-------------------------------------------|
+	*
+	* (en) Styling of forms where label floats left of form-elements
+	* (de) Formulargestaltung, bei der die label-Elemente nach links fließen
+	*/
+  /* Columnar display | Spalten-Darstellung */
+  /* line 409, ../sass/core/base.scss */
+  .ym-columnar .ym-fbox-text label,
+  .ym-columnar .ym-fbox-select label {
+    display: inline;
+    float: left;
+    width: 30%;
+    /* Can be fixed width too | Kann auch eine fixe Angabe sein */
+  }
+
+  /* line 414, ../sass/core/base.scss */
+  .ym-columnar .ym-fbox-check {
+    position: relative;
+  }
+
+  /* line 418, ../sass/core/base.scss */
+  .ym-label {
+    display: block;
+  }
+
+  /* line 419, ../sass/core/base.scss */
+  .ym-columnar .ym-fbox-check .ym-label {
+    position: absolute;
+    top: 0;
+  }
+
+  /* Indent Checkbox fields to match label-width | Checkboxen um den gleichen Wert einrücken, wie die Breite der labels */
+  /* line 426, ../sass/core/base.scss */
+  .ym-columnar .ym-fbox-check input,
+  .ym-columnar .ym-error .ym-message {
+    margin-left: 30%;
+  }
+
+  /* global and local columnar settings for button alignment */
+  /* line 432, ../sass/core/base.scss */
+  .ym-columnar fieldset .ym-fbox-button,
+  fieldset.ym-columnar .ym-fbox-button {
+    padding-left: 30%;
+  }
+
+  /* line 438, ../sass/core/base.scss */
+  .ym-columnar .ym-fbox-select select,
+  .ym-columnar .ym-fbox-text input,
+  .ym-columnar .ym-fbox-text textarea {
+    float: left;
+    width: 67.2%;
+    margin-right: -3px;
+  }
+
+  /**
+  * @section Form Construction Kit | Screen Adjustments
+  *
+  */
+  /* line 449, ../sass/core/base.scss */
+  .ym-fbox-select select {
+    width: 60%;
+  }
+
+  /* line 450, ../sass/core/base.scss */
+  .ym-full .ym-fbox-select select {
+    width: 94.8%;
+  }
+
+  /* line 451, ../sass/core/base.scss */
+  .ym-columnar .ym-fbox-select select {
+    width: 68.8%;
+  }
+}
+@media print {
+  /**
+  * @section print adjustments for core modules
+  *
+  * (en) float clearing for subtemplates. Uses display:table to avoid bugs in FF & IE
+  * (de) Float Clearing für die Subtemplates. Verwendet display:table, um Darstellungsprobleme im FF & IE zu vermeiden
+  *
+  * @bugfix
+  * @since     3.0
+  * @affected  FF2.0, FF3.0, IE7
+  * @css-for   all browsers
+  * @valid     yes
+  */
+  /* line 470, ../sass/core/base.scss */
+  .ym-grid > .ym-gl,
+  .ym-grid > .ym-gr {
+    overflow: visible;
+    display: table;
+  }
+
+  /* (en) make .ym-print class visible */
+  /* (de) .ym-print-Klasse sichtbar schalten */
+  /* line 477, ../sass/core/base.scss */
+  .ym-print {
+    position: static;
+    left: 0;
+  }
+
+  /* (en) generic class to hide elements for print */
+  /* (de) Allgemeine CSS Klasse, um beliebige Elemente in der Druckausgabe auszublenden */
+  /* line 484, ../sass/core/base.scss */
+  .ym-noprint {
+    display: none !important;
+  }
+}
+@media all {
+  /* line 16, ../sass/navigation/hlist.scss */
+  .ym-hlist {
+    /* (en) containing floats in IE */
+    /* (de) Einfassen der Floats im IE */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    line-height: 1em;
+    padding-left: 34px;
+  }
+  /* line 24, ../sass/navigation/hlist.scss */
+  .ym-hlist ul {
+    margin: auto;
+    padding: 0 0 0.5em 0;
+    /* (en|de) Bugfix:IE - Doubled Float Margin Bug */
+    display: inline;
+    float: left;
+    /* LTR */
+    border-bottom: 1px solid #a3a8bb;
+  }
+  /* line 31, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li {
+    /* (en|de) Bugfix:IE - Doubled Float Margin Bug */
+    display: inline;
+    float: left;
+    /* LTR */
+    line-height: 1.2em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0.5em 0;
+  }
+  /* line 39, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li a, .ym-hlist ul li strong {
+    display: block;
+    font-size: 12px;
+    line-height: 1em !important;
+    padding: 0;
+    width: 119px;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-left: 1px solid #a3a8bb;
+    color: #a3a8bb;
+  }
+  /* line 51, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li a:focus, .ym-hlist ul li a:hover, .ym-hlist ul li a:active, .ym-hlist ul li strong:focus, .ym-hlist ul li strong:hover, .ym-hlist ul li strong:active {
+    text-decoration: none;
+    outline: 0 none;
+  }
+  /* line 55, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li a.first, .ym-hlist ul li strong.first {
+    border-left: none;
+    padding-left: 0;
+    width: 85px;
+    text-align: left;
+  }
+  /* line 61, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li a.last, .ym-hlist ul li strong.last {
+    text-align: right;
+    width: 85px;
+    padding-right: 0;
+  }
+  /* line 66, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li a:hover, .ym-hlist ul li a.current, .ym-hlist ul li a.active, .ym-hlist ul li strong:hover, .ym-hlist ul li strong.current, .ym-hlist ul li strong.active {
+    color: #192755;
+  }
+  /* line 73, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li.active {
+    /* (en) Repeat the main color from the image */
+    /* (de) Wiederholung der Hauptfarbe aus der Bilddatei */
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+    -o-border-radius: 0.2em;
+    border-radius: 0.2em;
+  }
+  /* line 78, ../sass/navigation/hlist.scss */
+  .ym-hlist ul li.active:focus, .ym-hlist ul li.active:hover, .ym-hlist ul li.active:active {
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* search form
+  -------------------------------------- */
+  /* line 92, ../sass/navigation/hlist.scss */
+  .ym-searchform {
+    float: right;
+    display: inline;
+    line-height: 2em;
+    padding: 0.5em 1.5em;
+  }
+
+  /* line 99, ../sass/navigation/hlist.scss */
+  .ym-searchform .ym-searchfield {
+    background: #fff;
+    line-height: 1em;
+    padding: 0.25em;
+    width: 12em;
+    border: solid 1px #888;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    outline: none;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  /* line 113, ../sass/navigation/hlist.scss */
+  .ym-searchform .ym-searchbutton {
+    color: #fff;
+    line-height: 1em;
+    padding: 0.25em;
+    border: solid 1px transparent;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+    -o-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background: #5f5f5f;
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+/*  original code @ http://www.htmldog.com/articles/suckerfish/dropdowns/example/  */
+/* line 5, ../sass/navigation/suckerfish.scss */
+ul#sfnav, ul.metanavi {
+  width: auto;
+  list-style: none;
+  line-height: 1em;
+  padding: 0;
+  margin: 0 0 0 1.5em;
+  z-index: 2000;
+  position: relative;
+}
+/* line 13, ../sass/navigation/suckerfish.scss */
+ul#sfnav li, ul.metanavi li {
+  width: 8em;
+  line-height: 1em;
+  display: block;
+  left: -3000px;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+/* line 22, ../sass/navigation/suckerfish.scss */
+ul#sfnav li a, ul#sfnav li strong, ul.metanavi li a, ul.metanavi li strong {
+  text-align: center;
+  color: #222222;
+  text-transform: none;
+  text-decoration: none;
+  display: block;
+  border: 0px solid white;
+  padding: 0.5em;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  background: transparent;
+}
+/* line 35, ../sass/navigation/suckerfish.scss */
+ul#sfnav li a:hover, ul#sfnav li strong:hover, ul.metanavi li a:hover, ul.metanavi li strong:hover {
+  background: white;
+}
+/* line 39, ../sass/navigation/suckerfish.scss */
+ul#sfnav li a.current, ul#sfnav li strong.current, ul.metanavi li a.current, ul.metanavi li strong.current {
+  background: white;
+  color: #222222;
+}
+/* line 42, ../sass/navigation/suckerfish.scss */
+ul#sfnav li a.current:hover, ul#sfnav li strong.current:hover, ul.metanavi li a.current:hover, ul.metanavi li strong.current:hover {
+  color: #222222;
+}
+/* line 47, ../sass/navigation/suckerfish.scss */
+ul#sfnav li a.active, ul#sfnav li strong.active, ul.metanavi li a.active, ul.metanavi li strong.active {
+  background: white;
+  color: #222222;
+  font-weight: bold;
+}
+/* line 51, ../sass/navigation/suckerfish.scss */
+ul#sfnav li a.active:hover, ul#sfnav li strong.active:hover, ul.metanavi li a.active:hover, ul.metanavi li strong.active:hover {
+  color: #222222;
+}
+/* line 63, ../sass/navigation/suckerfish.scss */
+ul#sfnav li strong, ul.metanavi li strong {
+  font-weight: bold;
+}
+/* line 67, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul, ul.metanavi li ul {
+  position: absolute;
+  left: -999em;
+  width: 13em;
+  margin: 0 0 0 0em;
+}
+/* line 72, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li, ul.metanavi li ul li {
+  height: auto;
+  width: 100%;
+}
+/* line 75, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li ul, ul.metanavi li ul li ul {
+  margin: -2.125em 0 0 14.25em;
+}
+/* line 79, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li a, ul#sfnav li ul li strong, ul.metanavi li ul li a, ul.metanavi li ul li strong {
+  display: block;
+  text-align: left !important;
+  font-weight: normal;
+  background-color: #fcc5c5;
+  border: 2px solid white;
+  border-bottom: none;
+  border-bottom-width: 0;
+  width: 100%;
+}
+/* line 88, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li a:hover, ul#sfnav li ul li strong:hover, ul.metanavi li ul li a:hover, ul.metanavi li ul li strong:hover {
+  background-color: #fcd9d9;
+}
+/* line 92, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li a.current, ul#sfnav li ul li strong.current, ul.metanavi li ul li a.current, ul.metanavi li ul li strong.current {
+  background-color: #fcc5c5;
+  color: #222222;
+}
+/* line 95, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li a.current:hover, ul#sfnav li ul li strong.current:hover, ul.metanavi li ul li a.current:hover, ul.metanavi li ul li strong.current:hover {
+  color: #222222;
+}
+/* line 99, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li a.active, ul#sfnav li ul li strong.active, ul.metanavi li ul li a.active, ul.metanavi li ul li strong.active {
+  background: #fcc5c5;
+  color: #222222;
+}
+/* line 108, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li a.last, ul#sfnav li ul li a.single, ul#sfnav li ul li strong.last, ul#sfnav li ul li strong.single, ul.metanavi li ul li a.last, ul.metanavi li ul li a.single, ul.metanavi li ul li strong.last, ul.metanavi li ul li strong.single {
+  border-bottom: 2px solid white;
+}
+/* line 115, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li strong, ul.metanavi li ul li strong {
+  text-align: left;
+  font-weight: bold;
+}
+/* line 119, ../sass/navigation/suckerfish.scss */
+ul#sfnav li ul li ul, ul.metanavi li ul li ul {
+  width: 14em;
+}
+
+/* line 128, ../sass/navigation/suckerfish.scss */
+ul.metanavi {
+  float: right;
+  margin: 0 1em 0 0;
+}
+
+/* line 134, ../sass/navigation/suckerfish.scss */
+#sfnav li:hover ul ul, #sfnav li:hover ul ul ul, #sfnav .navfxenabled li:hover ul, #sfnav .navfxenabled li:hover ul ul, #sfnav .navfxenabled li:hover ul ul ul, #sfnav .navfxenabled li.over ul ul, #sfnav .navfxenabled li.over ul ul ul {
+  left: -999em;
+}
+
+/* line 138, ../sass/navigation/suckerfish.scss */
+#sfnav li:hover ul, #sfnav .navfxenabled li.over ul {
+  left: auto;
+}
+
+/* line 142, ../sass/navigation/suckerfish.scss */
+#sfnav li li:hover ul, #sfnav li li li:hover ul, #sfnav .navfxenabled li li.over ul, #sfnav .navfxenabled li li li.over ul {
+  left: -2px;
+}
+
+/* line 146, ../sass/navigation/suckerfish.scss */
+#sfnav li li.over ul.leftover, #sfnav .navfxenabled li li li.over ul.leftover, #sfnav .navfxenabled li li li li.over ul.leftover {
+  left: -28.44em;
+}
+
+@media screen and ( max-width: 740px ) {
+  /* line 151, ../sass/navigation/suckerfish.scss */
+  ul#sfnav, ul.metanavi {
+    margin: 0;
+  }
+  /* line 153, ../sass/navigation/suckerfish.scss */
+  ul#sfnav li, ul.metanavi li {
+    width: 6em;
+  }
+  /* line 156, ../sass/navigation/suckerfish.scss */
+  ul#sfnav li a, ul.metanavi li a {
+    padding: 0.5em;
+    margin: 0;
+    text-align: center;
+  }
+}
+@media screen and ( max-width: 480px) {
+  /* line 165, ../sass/navigation/suckerfish.scss */
+  ul.metanavi {
+    float: left;
+  }
+
+  /* line 169, ../sass/navigation/suckerfish.scss */
+  ul#sfnav, ul.metanavi {
+    margin: 0;
+  }
+  /* line 171, ../sass/navigation/suckerfish.scss */
+  ul#sfnav li a, ul.metanavi li a {
+    padding: 0.5em;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* line 178, ../sass/navigation/suckerfish.scss */
+  ul#sfnav li ul li a {
+    display: none;
+  }
+  /* line 180, ../sass/navigation/suckerfish.scss */
+  ul#sfnav li ul li a ul {
+    display: none;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * (en) Vertical list navigation "vlist"
+ * (de) Vertikale Navigationsliste "vlist"
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         v4.0
+ * @revision        $Revision: 677 $
+ * @lastmodified    $Date: 2012-01-18 23:36:59 +0100 (Mi, 18 Jan 2012) $
+ */
+@media all {
+  /* line 20, ../sass/navigation/vlist.scss */
+  .ym-vlist {
+    width: 100%;
+    overflow: hidden;
+    list-style-type: none;
+    padding-bottom: 3.077em;
+  }
+  /* line 26, ../sass/navigation/vlist.scss */
+  .ym-vlist h6.spacer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-shadow: #f4f4f4, 1, 1, 1;
+    padding-left: 10%;
+    margin: 0;
+    border-color: #444;
+    font-size: 1em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0.154em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 38, ../sass/navigation/vlist.scss */
+  .ym-vlist ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0em;
+    padding-top: 0.769em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 44, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li {
+    float: left;
+    /* LTR */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 52, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li a,
+  .ym-vlist ul li strong,
+  .ym-vlist ul li span {
+    width: 95%;
+    padding-left: 5%;
+    background: white;
+    color: #a3a8bb;
+    display: block;
+    font-size: 1em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0.508em;
+    padding-bottom: 0.508em;
+    margin-bottom: 0em;
+    border-top-style: solid;
+    border-top-width: 0.077em;
+    padding-top: -0.077em;
+    border-bottom-style: solid;
+    border-bottom-width: 0.077em;
+    padding-bottom: -0.077em;
+    text-decoration: none;
+    border-color: #ccc;
+    text-shadow: white 1px 1px 0;
+  }
+  /* line 18, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:visited,
+  .ym-vlist ul li strong:visited,
+  .ym-vlist ul li span:visited {
+    color: #a3a8bb;
+  }
+  /* line 21, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:focus,
+  .ym-vlist ul li strong:focus,
+  .ym-vlist ul li span:focus {
+    color: #192755;
+  }
+  /* line 24, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:hover,
+  .ym-vlist ul li strong:hover,
+  .ym-vlist ul li span:hover {
+    color: #192755;
+  }
+  /* line 27, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:active,
+  .ym-vlist ul li strong:active,
+  .ym-vlist ul li span:active {
+    color: #192755;
+  }
+  /* line 74, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li a.current, .ym-vlist ul li a.active,
+  .ym-vlist ul li strong.current,
+  .ym-vlist ul li strong.active,
+  .ym-vlist ul li span.current,
+  .ym-vlist ul li span.active {
+    font-weight: bold;
+    margin-top: 0em;
+    padding-top: 0.385em;
+    padding-bottom: 0.385em;
+    margin-bottom: 0em;
+  }
+  /* line 81, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li a.last,
+  .ym-vlist ul li strong.last,
+  .ym-vlist ul li span.last {
+    border-top-color: transparent;
+  }
+  /* line 86, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li ul {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 91, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li li ul {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 95, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li li a, .ym-vlist ul li li strong, .ym-vlist ul li li span {
+    width: 90%;
+    padding-left: 10%;
+    border-top-color: transparent;
+  }
+  /* line 102, ../sass/navigation/vlist.scss */
+  .ym-vlist ul li li li a, .ym-vlist ul li li li strong, .ym-vlist ul li li li span {
+    width: 80%;
+    padding-left: 20%;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * default screen stylesheet - PAGE-layout type layout
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         4.0
+ * @revision        $Revision: 672 $
+ * @lastmodified    $Date: 2012-01-18 10:30:19 +0100 (Mi, 18 Jan 2012) $
+ */
+@media screen {
+  /* force vertical scrollbar */
+  /* line 20, ../sass/screen/screen-PAGE-layout.scss */
+  body {
+    overflow-y: scroll;
+    background: #f6f6f6 url("../images/bodyBg.jpg") scroll center -220px no-repeat;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  /* Layout Module Configuration & fallback for media queries */
+  /* line 27, ../sass/screen/screen-PAGE-layout.scss */
+  .ym-wrapper {
+    min-width: 960px;
+    max-width: 960px;
+    margin: 2em auto;
+    border: 1px solid #c4c4c4;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+  }
+
+  /* line 35, ../sass/screen/screen-PAGE-layout.scss */
+  .ym-wbox {
+    padding: 0;
+    background-color: white;
+  }
+
+  /* Basic Element Styling */
+  /* line 41, ../sass/screen/screen-PAGE-layout.scss */
+  header {
+    -moz-border-radius-topleft: 15px;
+    -webkit-border-top-left-radius: 15px;
+    -ms-border-top-left-radius: 15px;
+    -o-border-top-left-radius: 15px;
+    border-top-left-radius: 15px;
+    -moz-border-radius-topright: 15px;
+    -webkit-border-top-right-radius: 15px;
+    -ms-border-top-right-radius: 15px;
+    -o-border-top-right-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    background: transparent url('../images/Notdienstbutton.png?1337599911') scroll 0 -12px no-repeat;
+    border-bottom: 0px #333333 solid;
+    background-color: white;
+    color: #333333;
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif !important;
+  }
+  /* line 51, ../sass/screen/screen-PAGE-layout.scss */
+  header #utilities {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    *zoom: 1;
+    padding-top: 85px;
+    padding-bottom: 1em;
+  }
+  /* line 60, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  header #utilities li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    white-space: nowrap;
+    display: inline;
+    float: left;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  /* line 48, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  header #utilities li:first-child, header #utilities li.first {
+    padding-left: 0;
+  }
+  /* line 49, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  header #utilities li:last-child {
+    padding-right: 0;
+  }
+  /* line 50, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  header #utilities li.last {
+    padding-right: 0;
+  }
+  /* line 55, ../sass/screen/screen-PAGE-layout.scss */
+  header #utilities li {
+    margin: 0;
+  }
+  /* line 57, ../sass/screen/screen-PAGE-layout.scss */
+  header #utilities li a {
+    font-size: 12px;
+    padding: 1em 0.5em 0em 0.5em;
+    text-transform: uppercase;
+  }
+  /* line 61, ../sass/screen/screen-PAGE-layout.scss */
+  header #utilities li a.first {
+    padding-left: 34px;
+    color: red !important;
+  }
+  /* line 68, ../sass/screen/screen-PAGE-layout.scss */
+  header hgroup {
+    display: inline-block;
+    width: 220px;
+    margin-top: 20px;
+    float: right;
+  }
+  /* line 74, ../sass/screen/screen-PAGE-layout.scss */
+  header hgroup h1 {
+    font-family: Helvetica, Arial, sans-serif !important;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    font-size: 2em;
+    line-height: 1.538em;
+    line-height: 1.538em;
+    color: #192755;
+    display: inline;
+  }
+  /* line 81, ../sass/screen/screen-PAGE-layout.scss */
+  header hgroup h1 a {
+    display: block;
+    width: 227px;
+    height: 100px;
+    color: #192755 !important;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    text-indent: -3000px !important;
+  }
+
+  /* line 95, ../sass/screen/screen-PAGE-layout.scss */
+  nav#mainmenu {
+    background-color: white;
+    padding: 1em 0;
+    margin: 0;
+  }
+
+  /* line 101, ../sass/screen/screen-PAGE-layout.scss */
+  #breadcrumbs {
+    background-color: white;
+    background-image: none;
+    color: #999999;
+    font-size: 0.5em;
+    line-height: 3.077em;
+    line-height: 3.077em;
+  }
+  /* line 107, ../sass/screen/screen-PAGE-layout.scss */
+  #breadcrumbs a {
+    color: #999999;
+  }
+  /* line 18, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:visited {
+    color: #999999;
+  }
+  /* line 21, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:focus {
+    color: #aaaaaa;
+  }
+  /* line 24, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:hover {
+    color: #aaaaaa;
+  }
+  /* line 27, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:active {
+    color: #aaaaaa;
+  }
+
+  /* line 118, ../sass/screen/screen-PAGE-layout.scss */
+  #teaser {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* line 125, ../sass/screen/screen-PAGE-layout.scss */
+  #main {
+    background-color: white;
+    color: #4f4f4f;
+    margin-top: 0em;
+    padding-top: 1.538em;
+    padding-bottom: 1.538em;
+    margin-bottom: 0em;
+  }
+
+  /* line 131, ../sass/screen/screen-PAGE-layout.scss */
+  footer {
+    font-size: 0.9em;
+    line-height: 1.709em;
+    border-top: 1px solid #9fa3b8;
+    background-color: #e8e9ee;
+    color: #606060;
+    margin: 0;
+    -moz-border-radius-bottomleft: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    -ms-border-bottom-left-radius: 15px;
+    -o-border-bottom-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -webkit-border-bottom-right-radius: 15px;
+    -ms-border-bottom-right-radius: 15px;
+    -o-border-bottom-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-left: 34px;
+    padding-right: 34px;
+    margin-top: 0em;
+    padding-top: 1.538em;
+    padding-bottom: 1.538em;
+    margin-bottom: 0em;
+    color: #606060;
+  }
+  /* line 146, ../sass/screen/screen-PAGE-layout.scss */
+  footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+    color: #606060;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.154em;
+  }
+  /* line 151, ../sass/screen/screen-PAGE-layout.scss */
+  footer a {
+    color: #606060;
+  }
+  /* line 18, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  footer a:visited {
+    color: #606060;
+  }
+  /* line 21, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  footer a:focus {
+    color: #192755;
+  }
+  /* line 24, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  footer a:hover {
+    color: #192755;
+  }
+  /* line 27, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  footer a:active {
+    color: #192755;
+  }
+  /* line 160, ../sass/screen/screen-PAGE-layout.scss */
+  footer #copyright {
+    border-top: 1px solid #bcbfcd;
+    margin-left: -34px;
+    margin-right: -34px;
+    padding-left: 34px;
+    padding-right: 34px;
+    font-size: 1em;
+    line-height: 1.538em;
+  }
+  /* line 161, ../sass/screen/screen-PAGE-layout.scss */
+  footer #copyright div.border {
+    display: block;
+    height: 1px;
+    border-top: 1px solid white;
+    margin-left: -34px;
+    margin-right: -34px;
+  }
+  /* line 174, ../sass/screen/screen-PAGE-layout.scss */
+  footer #copyright p {
+    margin: 1em 0;
+  }
+  /* line 179, ../sass/screen/screen-PAGE-layout.scss */
+  footer table {
+    margin: 0;
+    padding: 0 0.5em;
+    width: 90%;
+  }
+  /* line 184, ../sass/screen/screen-PAGE-layout.scss */
+  footer table th, footer table td {
+    color: #606060;
+    padding: 0 0.5em 0 0;
+    line-height: 1.538em;
+  }
+  /* line 190, ../sass/screen/screen-PAGE-layout.scss */
+  footer table tbody tr, footer table tbody td {
+    border: none;
+  }
+  /* line 192, ../sass/screen/screen-PAGE-layout.scss */
+  footer table tbody tr:hover, footer table tbody td:hover {
+    background: rgba(0, 0, 0, 0) !important;
+  }
+  /* line 194, ../sass/screen/screen-PAGE-layout.scss */
+  footer table tbody tr:hover td, footer table tbody td:hover td {
+    background: rgba(0, 0, 0, 0) !important;
+  }
+  /* line 199, ../sass/screen/screen-PAGE-layout.scss */
+  footer table caption {
+    font-family: Verdana;
+    font-variant: normal;
+    text-align: left;
+    padding-left: 5px;
+  }
+  /* line 208, ../sass/screen/screen-PAGE-layout.scss */
+  footer .ym-g33 {
+    font-size: 1em;
+    line-height: 1.538em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 215, ../sass/screen/screen-PAGE-layout.scss */
+  footer .ym-g33 .ym-gbox-left {
+    padding-left: 0px;
+    padding-right: 0;
+  }
+  /* line 219, ../sass/screen/screen-PAGE-layout.scss */
+  footer .ym-g33 .ym-gbox-right {
+    padding-left: 0px;
+    padding-right: 0;
+  }
+  /* line 224, ../sass/screen/screen-PAGE-layout.scss */
+  footer .ym-g33 ul li {
+    margin: 0;
+  }
+  /* line 227, ../sass/screen/screen-PAGE-layout.scss */
+  footer .ym-gbox-left {
+    padding-left: 0;
+    padding-right: 20px;
+  }
+  /* line 233, ../sass/screen/screen-PAGE-layout.scss */
+  footer .ym-gbox-right {
+    padding-left: 0px;
+    padding-right: 0;
+  }
+
+  /* line 239, ../sass/screen/screen-PAGE-layout.scss */
+  figure img, video, object {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+
+  /* line 245, ../sass/screen/screen-PAGE-layout.scss */
+  .ym-gbox {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* line 250, ../sass/screen/screen-PAGE-layout.scss */
+  .ym-gl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* line 255, ../sass/screen/screen-PAGE-layout.scss */
+  .ym-gbox-left {
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  /* line 261, ../sass/screen/screen-PAGE-layout.scss */
+  .ym-gbox-right {
+    padding-left: 20px;
+    padding-right: 0;
+  }
+
+  /* line 268, ../sass/screen/screen-PAGE-layout.scss */
+  #c179 .ym-gbox {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* line 273, ../sass/screen/screen-PAGE-layout.scss */
+  #c179 .ym-gbox-left {
+    padding-left: 0;
+    padding-right: 15px;
+  }
+  /* line 279, ../sass/screen/screen-PAGE-layout.scss */
+  #c179 .ym-gbox-right {
+    padding-left: 15px;
+    padding-right: 0;
+  }
+
+  /*------------------------------------------------------------------------------
+   * 3 Spalten links, normal, rechts (3-1-2)
+   * 
+   */
+  /* line 10, ../sass/partials/_columns.scss */
+  .ym-312.teaser-all, .ym-312.all {
+    /* center column */
+    /* left column */
+    /* right column */
+  }
+  /* line 13, ../sass/partials/_columns.scss */
+  .ym-312.teaser-all .ym-col1, .ym-312.all .ym-col1 {
+    width: 50%;
+    float: right;
+    margin-left: -75%;
+    margin-right: 25%;
+    background-color: white;
+    background-image: none;
+    color: #4f4f4f;
+  }
+  /* line 24, ../sass/partials/_columns.scss */
+  .ym-312.teaser-all .ym-col3, .ym-312.all .ym-col3 {
+    float: left;
+    width: 25%;
+    margin-left: 0;
+    margin-right: -5px;
+    background-color: white;
+    color: #4f4f4f;
+    font-size: 0.75em;
+    line-height: 2.051em;
+    margin-top: 0em;
+    padding-top: 1.538em;
+    padding-bottom: 1.538em;
+    margin-bottom: 1.538em;
+  }
+  /* line 37, ../sass/partials/_columns.scss */
+  .ym-312.teaser-all .ym-col2, .ym-312.all .ym-col2 {
+    width: 25%;
+    float: right;
+    margin-right: 0%;
+    font-size: 0.75em;
+    line-height: 2.051em;
+    line-height: 2.051em;
+    margin-top: 0em;
+    padding-top: 1.538em;
+    padding-bottom: 1.538em;
+    margin-bottom: 1.538em;
+  }
+
+  /*------------------------------------------------------------------------------
+   * 2 Spalten normal, rechts (1-3)
+   * 
+   */
+  /* line 54, ../sass/partials/_columns.scss */
+  .ym-312.normal-right, .ym-312.teaser-normal-right {
+    /* content */
+    /* sidebar rechts */
+  }
+  /* line 56, ../sass/partials/_columns.scss */
+  .ym-312.normal-right .ym-col1, .ym-312.teaser-normal-right .ym-col1 {
+    width: 75%;
+    background-color: white;
+    color: #4f4f4f;
+  }
+  /* line 62, ../sass/partials/_columns.scss */
+  .ym-312.normal-right .ym-col1 .ym-cbox, .ym-312.normal-right .ym-col1 .ym-cbox-left, .ym-312.normal-right .ym-col1 .ym-cbox-right, .ym-312.teaser-normal-right .ym-col1 .ym-cbox, .ym-312.teaser-normal-right .ym-col1 .ym-cbox-left, .ym-312.teaser-normal-right .ym-col1 .ym-cbox-right {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    padding-left: 34px;
+    padding-right: 2em;
+  }
+  /* line 71, ../sass/partials/_columns.scss */
+  .ym-312.normal-right .ym-col3, .ym-312.teaser-normal-right .ym-col3 {
+    margin-left: 75%;
+    margin-right: 0;
+    background-color: white;
+    color: #4f4f4f;
+  }
+  /* line 78, ../sass/partials/_columns.scss */
+  .ym-312.normal-right .ym-col3 .ym-cbox, .ym-312.normal-right .ym-col3 .ym-cbox-left, .ym-312.normal-right .ym-col3 .ym-cbox-right, .ym-312.teaser-normal-right .ym-col3 .ym-cbox, .ym-312.teaser-normal-right .ym-col3 .ym-cbox-left, .ym-312.teaser-normal-right .ym-col3 .ym-cbox-right {
+    font-size: 0.9em;
+    line-height: 1.709em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 1.538em;
+    margin-bottom: 1.538em;
+    padding-left: 0em;
+    padding-right: 34px;
+  }
+  /* line 85, ../sass/partials/_columns.scss */
+  .ym-312.normal-right .ym-col2, .ym-312.teaser-normal-right .ym-col2 {
+    display: none;
+  }
+
+  /*------------------------------------------------------------------------------
+   *  2 Spalten links, normal (3-1)
+   * 
+   */
+  /* line 96, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal, .ym-312.left-normal {
+    /* content */
+    /* sidebar */
+    /* sidebar */
+  }
+  /* line 98, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal .ym-col1, .ym-312.left-normal .ym-col1 {
+    width: 75%;
+    float: right;
+  }
+  /* line 102, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal .ym-col1 .ym-cbox, .ym-312.teaser-left-normal .ym-col1 .ym-cbox-left, .ym-312.teaser-left-normal .ym-col1 .ym-cbox-right, .ym-312.left-normal .ym-col1 .ym-cbox, .ym-312.left-normal .ym-col1 .ym-cbox-left, .ym-312.left-normal .ym-col1 .ym-cbox-right {
+    background-color: white;
+    color: #4f4f4f;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    padding-left: 2em;
+    padding-right: 0em;
+  }
+  /* line 115, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal .ym-col1 .ym-gbox-left, .ym-312.left-normal .ym-col1 .ym-gbox-left {
+    padding: 0 20px 0 0;
+  }
+  /* line 119, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal .ym-col1 .ym-gbox-right, .ym-312.left-normal .ym-col1 .ym-gbox-right {
+    padding: 0 0 0 20px;
+  }
+  /* line 124, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal .ym-col3, .ym-312.left-normal .ym-col3 {
+    margin-right: 75%;
+    margin-left: 0;
+  }
+  /* line 128, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal .ym-col3 .ym-cbox, .ym-312.teaser-left-normal .ym-col3 .ym-cbox-left, .ym-312.teaser-left-normal .ym-col3 .ym-cbox-right, .ym-312.left-normal .ym-col3 .ym-cbox, .ym-312.left-normal .ym-col3 .ym-cbox-left, .ym-312.left-normal .ym-col3 .ym-cbox-right {
+    background-color: white;
+    color: #4f4f4f;
+    font-size: 0.75em;
+    line-height: 2.051em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 1.231em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0)));
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%);
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%);
+    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%);
+    background-image: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%);
+    background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%);
+    -webkit-background-size: 100% 10px;
+    -moz-background-size: 100% 10px;
+    -o-background-size: 100% 10px;
+    background-size: 100% 10px;
+    background-position: left top;
+  }
+  /* line 143, ../sass/partials/_columns.scss */
+  .ym-312.teaser-left-normal .ym-col2, .ym-312.left-normal .ym-col2 {
+    display: none;
+  }
+
+  /*------------------------------------------------------------------------------
+   * 1 Spalte
+   * 
+   */
+  /* line 154, ../sass/partials/_columns.scss */
+  .ym-312.teaser-normal .ym-col1, .ym-312.normal .ym-col1 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    float: left;
+    clear: both;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 163, ../sass/partials/_columns.scss */
+  .ym-312.teaser-normal .ym-col1 .ym-gbox-left, .ym-312.normal .ym-col1 .ym-gbox-left {
+    padding: 0 20px 0 0;
+  }
+  /* line 167, ../sass/partials/_columns.scss */
+  .ym-312.teaser-normal .ym-col1 .ym-gbox-right, .ym-312.normal .ym-col1 .ym-gbox-right {
+    padding: 0 0 0 20px;
+  }
+  /* line 170, ../sass/partials/_columns.scss */
+  .ym-312.teaser-normal .ym-col1 .ym-cbox, .ym-312.normal .ym-col1 .ym-cbox {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+  /* line 175, ../sass/partials/_columns.scss */
+  .ym-312.teaser-normal .ym-col2, .ym-312.teaser-normal .ym-col3, .ym-312.normal .ym-col2, .ym-312.normal .ym-col3 {
+    display: none;
+  }
+
+  /* line 288, ../sass/screen/screen-PAGE-layout.scss */
+  #page-78 .ym-col3 ul {
+    margin-left: 0;
+  }
+  /* line 29, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+  #page-78 .ym-col3 ul li {
+    padding-left: 14px;
+    background: url('../images/bullet-red.gif?1336406668') no-repeat 1.5px 3.5px;
+    list-style-type: none;
+  }
+  /* line 290, ../sass/screen/screen-PAGE-layout.scss */
+  #page-78 .ym-col3 ul li {
+    margin-bottom: 0.75em;
+  }
+}
+@media screen and screen and ( max-width: 480px) {
+  /* line 184, ../sass/partials/_columns.scss */
+  .ym-312.teaser-normal .ym-col1 .ym-cbox, .ym-312.normal .ym-col1 .ym-cbox {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * YAML form theme: "gray-theme"
+ *
+ * @copyright			 Copyright 2005-2012, Dirk Jesse
+ * @license				 CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                       YAML-CDL (http://www.yaml.de/license.html)
+ * @link                 http://www.yaml.de
+ * @package				 yaml
+ * @version              v4.0
+ * @revision             $Revision: 656 $
+ * @lastmodified         $Date: 2012-01-11 21:27:54 +0100 (Mi, 11 Jan 2012) $
+ */
+@media screen and (min-width: 0px) {
+  /**
+  * @section general width settings for formular elements in modern browsers
+  *          switching to CSS3 box modell "border-box" for perfect flexible forms
+  *
+  * Styling for: <labels>, <input>, <textarea> and <select>
+  *
+  */
+  /* line 29, ../sass/forms/forms.scss */
+  .ym-form input,
+  .ym-form input,
+  .ym-form textarea,
+  .ym-form select {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 60%;
+  }
+
+  /* line 37, ../sass/forms/forms.scss */
+  .ym-columnar label {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  /* line 46, ../sass/forms/forms.scss */
+  .ym-columnar .ym-fbox-select select,
+  .ym-columnar .ym-fbox-text input,
+  .ym-columnar .ym-fbox-text textarea {
+    width: 70%;
+  }
+
+  /* line 50, ../sass/forms/forms.scss */
+  .ym-full .ym-fbox-select select,
+  .ym-full .ym-fbox-text input,
+  .ym-full .ym-fbox-text textarea {
+    width: 100%;
+  }
+}
+@media screen, projection {
+  /**
+  * @section general form styling
+  *
+  * Styling for: <form>, <fieldset>, <legend>, <label> and rows (class="ym-fbox-[xxx]")
+  *
+  */
+  /* line 61, ../sass/forms/forms.scss */
+  .ym-form {
+    background: #f4f4f4;
+    border: 2px #fff solid;
+    margin: 1.5em 0 0 0;
+    padding: 0;
+    -webkit-box-shadow: 0 0 4px #666;
+    -moz-box-shadow: 0 0 4px #666;
+    box-shadow: 0 0 4px #666;
+  }
+
+  /* line 71, ../sass/forms/forms.scss */
+  .ym-form fieldset {
+    position: static;
+    background: transparent;
+    margin: 0.75em 0 0.75em 0;
+    padding: 0 0.5em;
+  }
+
+  /* line 78, ../sass/forms/forms.scss */
+  .ym-form legend {
+    background: transparent;
+    color: #000;
+    font-size: 1.2em;
+    line-height: 1.25em;
+    font-weight: bold;
+    padding: 0 0.5em;
+  }
+
+  /* line 87, ../sass/forms/forms.scss */
+  .ym-form label {
+    color: #666;
+    line-height: 1.5em;
+  }
+
+  /* line 92, ../sass/forms/forms.scss */
+  .ym-label {
+    color: #666;
+    padding-top: 0.25em;
+  }
+
+  /* line 97, ../sass/forms/forms.scss */
+  .ym-form .ym-form div.ym-fbox-check:focus + label {
+    color: #000;
+  }
+
+  /* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
+  /* line 105, ../sass/forms/forms.scss */
+  .ym-form div.ym-fbox-text,
+  .ym-form div.ym-fbox-select,
+  .ym-form div.ym-fbox-check,
+  .ym-form div.ym-fbox-button {
+    padding: 0.3em 1em;
+    margin-bottom: 0.5em;
+  }
+
+  /* line 110, ../sass/forms/forms.scss */
+  .ym-form div.ym-fbox-button {
+    background: #ececec;
+    border-top: 1px #e0e0e0 solid;
+    padding: 0 1em 1.5em 1em;
+    margin: 0;
+  }
+
+  /* line 117, ../sass/forms/forms.scss */
+  .ym-form .ym-gbox {
+    padding: 0 0.5em;
+    margin-right: 0;
+  }
+
+  /* line 122, ../sass/forms/forms.scss */
+  .ym-form h6 {
+    color: #000;
+    margin: 1em 0 0 1em;
+  }
+
+  /**
+  * @section styling form elements
+  *
+  * Styling for: Input, Textarea, Select ...
+  *
+  */
+  /* styling standard form elements with 'almost' equal flexible width */
+  /* Gestaltung der einzelnen Formularelemente mit annähend gleicher Breite */
+  /* line 137, ../sass/forms/forms.scss */
+  .ym-form .ym-fbox-text input,
+  .ym-form .ym-fbox-text textarea {
+    line-height: 1em;
+    padding: 0.25em 0.3em;
+    margin-top: -2px;
+  }
+
+  /* line 143, ../sass/forms/forms.scss */
+  .ym-form .ym-fbox-select select {
+    line-height: 1em;
+    padding: 0.25em 2px 0.25em 1px;
+    margin-top: -2px;
+  }
+
+  /* proportional fonts for all form elements */
+  /* line 153, ../sass/forms/forms.scss */
+  .ym-form input,
+  .ym-form textarea,
+  .ym-form select,
+  .ym-form optgroup {
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-shadow: inset 0 0 4px #eee;
+    -moz-box-shadow: inset 0 0 4px #eee;
+    box-shadow: inset 0 0 4px #eee;
+  }
+
+  /* line 160, ../sass/forms/forms.scss */
+  .ym-form optgroup {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  /* line 167, ../sass/forms/forms.scss */
+  .ym-form .ym-fbox-text input,
+  .ym-form .ym-fbox-text textarea,
+  .ym-form .ym-fbox-select select {
+    border: 1px solid #ddd;
+  }
+
+  /* General form styling	| Allgemeine Formatierung des Formulars */
+  /* line 172, ../sass/forms/forms.scss */
+  .ym-form .ym-message {
+    color: #666;
+    margin-bottom: 0.5em;
+  }
+
+  /* Highlight mandatory fields | Pflichtfeldkennzeichnung hervorheben */
+  /* line 178, ../sass/forms/forms.scss */
+  .ym-form sup {
+    color: #800;
+    font-weight: bold;
+  }
+
+  /* form validation highlight colors */
+  /* line 185, ../sass/forms/forms.scss */
+  .ym-form input:valid,
+  ‚ .ym-form textarea:valid {
+    background-color: #fff;
+  }
+
+  /* line 187, ../sass/forms/forms.scss */
+  .ym-form input:invalid,
+  .ym-form textarea:invalid {
+    background-color: #fdd;
+  }
+
+  /**
+  * @section error messages
+  *
+  */
+  /* line 194, ../sass/forms/forms.scss */
+  .ym-form .ym-error label {
+    color: #800;
+    font-weight: normal;
+  }
+
+  /* line 201, ../sass/forms/forms.scss */
+  .ym-form .ym-error input,
+  .ym-form .ym-error select,
+  .ym-form .ym-error textarea {
+    border: 1px #800 solid;
+  }
+
+  /* line 210, ../sass/forms/forms.scss */
+  .ym-form .ym-error input:hover,
+  .ym-form .ym-error input:focus,
+  .ym-form .ym-error select:hover,
+  .ym-form .ym-error select:focus,
+  .ym-form .ym-error textarea:hover,
+  .ym-form .ym-error textarea:focus {
+    border: 1px #800 solid !important;
+  }
+
+  /* line 214, ../sass/forms/forms.scss */
+  .ym-form .ym-error .ym-message {
+    color: #800;
+  }
+
+  /* :hover and :focus status on form fields | Effekt zur Hervorhebung von Formularfeldern bei :hover oder :focus */
+  /* line 227, ../sass/forms/forms.scss */
+  .ym-form div.ym-fbox-text input:focus,
+  .ym-form div select:focus,
+  .ym-form div textarea:focus,
+  .ym-form div.ym-fbox-text input:hover,
+  .ym-form div select:hover,
+  .ym-form div textarea:hover,
+  .ym-form div.ym-fbox-text input:active,
+  .ym-form div select:active,
+  .ym-form div textarea:active {
+    border: 1px #888 solid;
+    background: #fff;
+  }
+
+  /**
+  * @section Buttons
+  *
+  * inspired from: Catalin Rosu (http://www.red-team-design.com/just-another-awesome-css3-buttons)
+  */
+  /* line 242, ../sass/forms/forms.scss */
+  .ym-button,
+  .ym-form button,
+  .ym-form input[type="button"],
+  .ym-form input[type="reset"],
+  .ym-form input[type="submit"] {
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: linear-gradient(top, #eeeeee, #cccccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    color: #333 !important;
+    cursor: pointer;
+    font: normal 1em/2em Arial, Helvetica;
+    margin: 1.5em 0.75em 0 0;
+    padding: 0 1.5em;
+    overflow: visible;
+    /* removes extra side spacing in IE */
+    text-decoration: none !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  /* line 273, ../sass/forms/forms.scss */
+  .ym-form button:hover,
+  .ym-form input[type="button"]:hover,
+  .ym-form input[type="reset"]:hover,
+  .ym-form input[type="submit"]:hover,
+  .ym-button:hover {
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(top, #fafafa, #dddddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #dddddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #dddddd);
+    background-image: -o-linear-gradient(top, #fafafa, #dddddd);
+    background-image: linear-gradient(top, #fafafa, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+  }
+
+  /* line 287, ../sass/forms/forms.scss */
+  .ym-form button:active,
+  .ym-form input[type="button"]:active,
+  .ym-form input[type="reset"]:active,
+  .ym-form input[type="submit"]:active,
+  .ym-button:active {
+    background-color: #bbb;
+    background-image: -webkit-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: -moz-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: -ms-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: -o-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: linear-gradient(top, #cccccc, #bbbbbb);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#bbbbbb');
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2) inset;
+    position: relative;
+    top: 1px;
+  }
+
+  /* line 304, ../sass/forms/forms.scss */
+  .ym-form button:focus,
+  .ym-form input[type="button"]:focus,
+  .ym-form input[type="reset"]:focus,
+  .ym-form input[type="submit"]:focus,
+  .ym-button:focus {
+    outline: 0;
+    background: #fafafa;
+  }
+
+  /* line 313, ../sass/forms/forms.scss */
+  .ym-form button:before,
+  .ym-form input[type="button"]:before,
+  .ym-form input[type="reset"]:before,
+  .ym-form input[type="submit"]:before,
+  .ym-button:before {
+    background: #ccc;
+    background: rgba(0, 0, 0, 0.1);
+    float: left;
+    width: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 1em 0 -1em;
+    padding: 0 .2em;
+    -moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
+    -moz-border-radius: .15em 0 0 .15em;
+    -webkit-border-radius: .15em 0 0 .15em;
+    border-radius: .15em 0 0 .15em;
+    pointer-events: none;
+  }
+
+  /* line 331, ../sass/forms/forms.scss */
+  .ym-add:before {
+    content: "\271A";
+  }
+
+  /* line 332, ../sass/forms/forms.scss */
+  .ym-delete:before {
+    content: "\2718";
+  }
+
+  /* line 333, ../sass/forms/forms.scss */
+  .ym-edit:before {
+    content: "\270E";
+  }
+
+  /* line 334, ../sass/forms/forms.scss */
+  .ym-email:before {
+    content: "\2709";
+  }
+
+  /* line 335, ../sass/forms/forms.scss */
+  .ym-like:before {
+    content: "\2764";
+  }
+
+  /* line 336, ../sass/forms/forms.scss */
+  .ym-next:before {
+    content: "\279C";
+  }
+
+  /* line 337, ../sass/forms/forms.scss */
+  .ym-play:before {
+    content: "\25B6";
+  }
+
+  /* line 338, ../sass/forms/forms.scss */
+  .ym-save:before {
+    content: "\2714";
+  }
+
+  /* line 339, ../sass/forms/forms.scss */
+  .ym-spark:before {
+    content: "\2737";
+  }
+
+  /* line 340, ../sass/forms/forms.scss */
+  .ym-star:before {
+    content: "\2605";
+  }
+
+  /* removes extra inner spacing in Firefox */
+  /* line 343, ../sass/forms/forms.scss */
+  .ym-form button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  /* If line-height can't be modified, then fix Firefox spacing with padding */
+  /* line 351, ../sass/forms/forms.scss */
+  .ym-form input[type=button]::-moz-focus-inner,
+  .ym-form input[type=reset]::-moz-focus-inner,
+  .ym-form input[type=submit]::-moz-focus-inner {
+    padding: .4em;
+  }
+
+  /* The disabled styles */
+  /* line 365, ../sass/forms/forms.scss */
+  .ym-form button[disabled],
+  .ym-form button[disabled]:hover,
+  .ym-form input[type=button][disabled],
+  .ym-form input[type=button][disabled]:hover,
+  .ym-form input[type=reset][disabled],
+  .ym-form input[type=reset][disabled]:hover,
+  .ym-form input[type=submit][disabled],
+  .ym-form input[type=submit][disabled]:hover,
+  .ym-button.ym-disabled,
+  .ym-button.ym-disabled:hover {
+    background: #eee;
+    color: #aaa !important;
+    border-color: #aaa;
+    cursor: default;
+    text-shadow: none;
+    position: static;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* ie6 support styles - redefined buttons, because of missing support for attribute selectors */
+  /* line 379, ../sass/forms/forms.scss */
+  * html .ym-button,
+  * html .ym-form button {
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    color: #333 !important;
+    cursor: pointer;
+    font: normal 1em/2em Arial, Helvetica;
+    margin: 1.5em 0.75em 0 0;
+    padding: 0 1.5em;
+    overflow: visible;
+    /* removes extra side spacing in IE */
+    text-decoration: none !important;
+  }
+
+  /* line 395, ../sass/forms/forms.scss */
+  * html .ym-form button:focus,
+  * html .ym-button:focus {
+    outline: 0;
+    background: #fafafa;
+  }
+
+  /* line 401, ../sass/forms/forms.scss */
+  * html .ym-form button:hover,
+  * html .ym-button:hover {
+    background-color: #ddd;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+  }
+
+  /* line 407, ../sass/forms/forms.scss */
+  * html .ym-form button:active,
+  * html .ym-button:active {
+    background-color: #bbb;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#bbbbbb');
+    position: relative;
+    top: 1px;
+  }
+
+  /* line 415, ../sass/forms/forms.scss */
+  * html .ym-button.ym-disabled,
+  * html .ym-button.ym-disabled:hover {
+    background: #eee;
+    color: #aaa !important;
+    border-color: #aaa;
+    cursor: default;
+    text-shadow: none;
+    position: static;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * (en) Uniform design of standard content elements
+ * (de) Einheitliche Standardformatierungen für die wichtigten Inhalts-Elemente
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         4.0
+ * @revision        $Revision: 677 $
+ * @lastmodified    $Date: 2012-01-18 23:36:59 +0100 (Mi, 18 Jan 2012) $
+ * @appdef yaml
+ */
+@media all {
+  /**
+  * @section global typography settings
+  *
+  * vertical rhythm settings (based on em-unit)
+  * -------------------------------------------
+  * basefont-size: 16px (100%)
+  * line-height  : 24px (factor: 1.5)
+  */
+  /* line 58, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+  body {
+    font-size: 81.25%;
+    line-height: 1.538em;
+  }
+
+  /* line 62, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+  html > body {
+    font-size: 13px;
+  }
+
+  /**
+  * (en) reset monospaced elements to font size 16px in all browsers
+  * (de) Schriftgröße von monospaced Elemente in allen Browsern auf 16 Pixel setzen
+  *
+  * @see: http://webkit.org/blog/67/strange-medium/
+  */
+  /* line 44, ../sass/typography/typography.scss */
+  textarea,
+  pre,
+  code,
+  kbd,
+  samp,
+  var,
+  tt {
+    font-family: Consolas, "Lucida Console", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier;
+  }
+
+  /* (en) base layout gets standard font size 14px */
+  /* (de) Basis-Layout erhält Standardschriftgröße von 14 Pixeln */
+  /* line 50, ../sass/typography/typography.scss */
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    /* (en) Prevent auto-scaling of text in mobile webkit browsers */
+    /* (en) Automatische Schriftvergrößerung in mobilen Webkit-Browsern vermeiden */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* line 56, ../sass/typography/typography.scss */
+  .htmlarea-content-body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background: white;
+    font-size: 1em;
+    line-height: 1.538em;
+    line-height: 1.538em;
+    width: 670px;
+  }
+
+  /*--- Headings | Überschriften ------------------------------------------------------------------------*/
+  /* line 65, ../sass/typography/typography.scss */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #192755;
+  }
+
+  /* line 71, ../sass/typography/typography.scss */
+  h1 {
+    font-size: 3em;
+    line-height: 1.538em;
+    margin-bottom: 0.513em;
+  }
+
+  /* line 76, ../sass/typography/typography.scss */
+  h2 {
+    font-size: 1.75em;
+    line-height: 0.879em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.769em;
+  }
+
+  /* line 81, ../sass/typography/typography.scss */
+  h3 {
+    font-size: 1.3em;
+    line-height: 1.183em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.031em;
+  }
+
+  /* line 86, ../sass/typography/typography.scss */
+  h4 {
+    font-size: 1.167em;
+    line-height: 1.318em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.615em;
+  }
+
+  /* line 91, ../sass/typography/typography.scss */
+  h5 {
+    font-size: 1em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.508em;
+    color: #333333;
+  }
+
+  /* line 97, ../sass/typography/typography.scss */
+  h6 {
+    font-size: 1em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.508em;
+    color: #333333;
+  }
+
+  /* line 105, ../sass/typography/typography.scss */
+  #teaser h1, #teaser h2, #teaser h3, #teaser h4, #teaser h5, #teaser h6 {
+    color: #192755;
+  }
+  /* line 110, ../sass/typography/typography.scss */
+  #teaser h2 {
+    font-size: 1.5em;
+    line-height: 1.026em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.508em;
+  }
+  /* line 114, ../sass/typography/typography.scss */
+  #teaser h3 {
+    font-size: 1.2em;
+    line-height: 1.282em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    color: #333333;
+  }
+  /* line 120, ../sass/typography/typography.scss */
+  #teaser h4 {
+    font-size: 1em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.031em;
+  }
+  /* line 125, ../sass/typography/typography.scss */
+  #teaser h5 {
+    font-size: 1em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.508em;
+    color: #333333;
+  }
+  /* line 131, ../sass/typography/typography.scss */
+  #teaser h6 {
+    font-size: 1em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.508em;
+    color: #333333;
+  }
+
+  /* line 139, ../sass/typography/typography.scss */
+  .ym-col3 .ym-cbox h3, .ym-col3 .ym-cbox-left h3, .ym-col3 .ym-cbox-right h3 {
+    font-size: 1.5em;
+    line-height: 1.026em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.031em;
+    color: #192755;
+  }
+  /* line 145, ../sass/typography/typography.scss */
+  .ym-col3 .ym-cbox h4, .ym-col3 .ym-cbox-left h4, .ym-col3 .ym-cbox-right h4 {
+    font-size: 1.167em;
+    line-height: 1.318em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.462em;
+  }
+  /* line 150, ../sass/typography/typography.scss */
+  .ym-col3 .ym-cbox h5, .ym-col3 .ym-cbox-left h5, .ym-col3 .ym-cbox-right h5 {
+    font-size: 1.5em;
+    line-height: 1.026em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.769em;
+  }
+
+  /* --- Lists | Listen  -------------------------------------------------------------------------------- */
+  /* line 163, ../sass/typography/typography.scss */
+  ul,
+  ol,
+  dl {
+    margin-bottom: 1.538em;
+  }
+
+  /* line 167, ../sass/typography/typography.scss */
+  ul {
+    list-style-type: disc;
+  }
+
+  /* line 171, ../sass/typography/typography.scss */
+  ol {
+    list-style-type: decimal;
+  }
+
+  /* line 175, ../sass/typography/typography.scss */
+  ul ul {
+    list-style-type: circle;
+    margin-top: 0;
+  }
+
+  /* line 180, ../sass/typography/typography.scss */
+  ol ol {
+    list-style-type: lower-latin;
+    margin-top: 0;
+  }
+
+  /* line 185, ../sass/typography/typography.scss */
+  ol ul {
+    list-style-type: circle;
+    margin-top: 0;
+  }
+
+  /* line 190, ../sass/typography/typography.scss */
+  li {
+    line-height: 1.538em;
+    margin-left: 0.8em;
+  }
+
+  /* line 195, ../sass/typography/typography.scss */
+  dt {
+    font-weight: bold;
+  }
+
+  /* line 197, ../sass/typography/typography.scss */
+  dd {
+    margin-bottom: 1.538em;
+    margin-left: 0.8em;
+  }
+
+  /* --- general text formatting | Allgemeine Textauszeichnung ------------------------------------------ */
+  /* line 205, ../sass/typography/typography.scss */
+  p,
+  blockquote {
+    margin: 0;
+    padding: 0;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.538em;
+  }
+
+  /* line 211, ../sass/typography/typography.scss */
+  blockquote p {
+    color: #666;
+  }
+  /* line 213, ../sass/typography/typography.scss */
+  blockquote p:before {
+    content: "\201e";
+    margin-left: -7px;
+  }
+  /* line 217, ../sass/typography/typography.scss */
+  blockquote p:after {
+    content: "\201c";
+  }
+
+  /* line 222, ../sass/typography/typography.scss */
+  blockquote, cite, q {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+  }
+
+  /* line 228, ../sass/typography/typography.scss */
+  strong, b {
+    font-weight: bold;
+  }
+
+  /* line 230, ../sass/typography/typography.scss */
+  em, i {
+    font-style: italic;
+  }
+
+  /* line 232, ../sass/typography/typography.scss */
+  big {
+    font-size: 116.667%;
+  }
+
+  /* line 236, ../sass/typography/typography.scss */
+  .xbig, blockquote p.xbig, blockquote div.xbig {
+    font-size: 2em;
+    line-height: 0.769em;
+  }
+
+  /* line 239, ../sass/typography/typography.scss */
+  .xxbig, blockquote p.xxbig, blockquote div.xxbig {
+    font-size: 3em;
+    line-height: 0.513em;
+  }
+
+  /* line 242, ../sass/typography/typography.scss */
+  small {
+    font-size: 85.71%;
+  }
+
+  /* line 251, ../sass/typography/typography.scss */
+  pre,
+  code,
+  kbd,
+  tt,
+  samp,
+  var {
+    font-size: 100%;
+  }
+
+  /* line 255, ../sass/typography/typography.scss */
+  pre {
+    line-height: 1.5em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.538em;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* line 262, ../sass/typography/typography.scss */
+  pre, code {
+    color: #800;
+  }
+
+  /* line 264, ../sass/typography/typography.scss */
+  kbd, samp, var, tt {
+    color: #666;
+    font-weight: bold;
+  }
+
+  /* line 269, ../sass/typography/typography.scss */
+  var, dfn {
+    font-style: italic;
+  }
+
+  /* line 271, ../sass/typography/typography.scss */
+  acronym, abbr {
+    border-bottom: 1px #aaa dotted;
+    font-variant: small-caps;
+    letter-spacing: .07em;
+    cursor: help;
+  }
+
+  /* line 279, ../sass/typography/typography.scss */
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  /* line 286, ../sass/typography/typography.scss */
+  sup {
+    top: -0.5em;
+  }
+
+  /* line 287, ../sass/typography/typography.scss */
+  sub {
+    bottom: -0.25em;
+  }
+
+  /* line 289, ../sass/typography/typography.scss */
+  mark {
+    background: #ff0;
+    color: #000;
+  }
+
+  /* line 294, ../sass/typography/typography.scss */
+  hr {
+    color: #666666;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px #666666 solid;
+    margin-top: 1.538em;
+    margin-bottom: 1.538em;
+  }
+
+  /*--- Links ----------------------------------------------------------------------------------------- */
+  /* line 305, ../sass/typography/typography.scss */
+  a {
+    text-decoration: none;
+    color: #666666;
+  }
+  /* line 18, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  a:visited {
+    color: #666666;
+  }
+  /* line 21, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  a:focus {
+    color: #192755;
+  }
+  /* line 24, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  a:hover {
+    color: #192755;
+  }
+  /* line 27, ../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  a:active {
+    color: #192755;
+  }
+  /* line 318, ../sass/typography/typography.scss */
+  a:active, a:hover, a:focus {
+    outline: none;
+  }
+
+  /**
+   * Buttons 
+   *   
+   */
+  /* line 327, ../sass/typography/typography.scss */
+  a.highlight-button {
+    display: inline-block;
+    width: 212px;
+    text-align: center;
+    font-weight: bold;
+    white-space: nowrap;
+    margin: 0 auto;
+    background-color: #192755;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #192755), color-stop(100%, #111b3b));
+    background-image: -webkit-linear-gradient(top, #192755, #111b3b);
+    background-image: -moz-linear-gradient(top, #192755, #111b3b);
+    background-image: -o-linear-gradient(top, #192755, #111b3b);
+    background-image: -ms-linear-gradient(top, #192755, #111b3b);
+    background-image: linear-gradient(top, #192755, #111b3b);
+    margin-top: 0em;
+    padding-top: 0.308em;
+    padding-bottom: 0.308em;
+    margin-bottom: 0em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 3px #333333;
+    -moz-box-shadow: 1px 1px 3px #333333;
+    box-shadow: 1px 1px 3px #333333;
+    border: 1px solid #192755;
+    color: white;
+  }
+
+  /* line 345, ../sass/typography/typography.scss */
+  a.ym-button {
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: linear-gradient(top, #eeeeee, #cccccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    color: #333 !important;
+    cursor: pointer;
+    font: bold 1em/2em Arial, Helvetica;
+    margin: 1.5em 0.75em 0 0;
+    padding: 0 1.5em;
+    overflow: visible;
+    /* removes extra side spacing in IE */
+    text-decoration: none !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  /* line 372, ../sass/typography/typography.scss */
+  a.ym-button:hover {
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(top, #fafafa, #dddddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #dddddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #dddddd);
+    background-image: -o-linear-gradient(top, #fafafa, #dddddd);
+    background-image: linear-gradient(top, #fafafa, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+  }
+
+  /* line 382, ../sass/typography/typography.scss */
+  a.ym-button:active {
+    background-color: #bbb;
+    background-image: -webkit-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: -moz-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: -ms-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: -o-linear-gradient(top, #cccccc, #bbbbbb);
+    background-image: linear-gradient(top, #cccccc, #bbbbbb);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#bbbbbb');
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2) inset;
+    position: relative;
+    top: 1px;
+  }
+
+  /* line 395, ../sass/typography/typography.scss */
+  a.ym-button:focus {
+    outline: 0;
+    background: #fafafa;
+  }
+
+  /* line 400, ../sass/typography/typography.scss */
+  a.ym-button:before {
+    background: #ccc;
+    background: rgba(0, 0, 0, 0.1);
+    float: left;
+    width: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 1em 0 -1em;
+    padding: 0 .2em;
+    -moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
+    -moz-border-radius: .15em 0 0 .15em;
+    -webkit-border-radius: .15em 0 0 .15em;
+    border-radius: .15em 0 0 .15em;
+    pointer-events: none;
+  }
+
+  /* line 418, ../sass/typography/typography.scss */
+  a.ym-button.ym-add:before {
+    content: "\271A";
+  }
+
+  /* line 419, ../sass/typography/typography.scss */
+  a.ym-button.ym-delete:before {
+    content: "\2718";
+  }
+
+  /* line 420, ../sass/typography/typography.scss */
+  a.ym-button.ym-edit:before {
+    content: "\270E";
+  }
+
+  /* line 421, ../sass/typography/typography.scss */
+  a.ym-button.ym-email:before {
+    content: "\2709";
+  }
+
+  /* line 422, ../sass/typography/typography.scss */
+  a.ym-button.ym-like:before {
+    content: "\2764";
+  }
+
+  /* line 423, ../sass/typography/typography.scss */
+  a.ym-button.ym-next:before {
+    content: "\279C";
+  }
+
+  /* line 424, ../sass/typography/typography.scss */
+  a.ym-button.ym-play:before {
+    content: "\25B6";
+  }
+
+  /* line 425, ../sass/typography/typography.scss */
+  a.ym-button.ym-save:before {
+    content: "\2714";
+  }
+
+  /* line 426, ../sass/typography/typography.scss */
+  a.ym-button.ym-spark:before {
+    content: "\2737";
+  }
+
+  /* line 427, ../sass/typography/typography.scss */
+  a.ym-button.ym-star:before {
+    content: "\2605";
+  }
+
+  /* --- images ------------------ */
+  /* line 431, ../sass/typography/typography.scss */
+  img,
+  figure {
+    margin: 0;
+  }
+
+  /* line 435, ../sass/typography/typography.scss */
+  .flexible {
+    margin-top: 1.5em;
+    max-width: 100%;
+  }
+
+  /* line 440, ../sass/typography/typography.scss */
+  * html .flexible {
+    /* IE6 support */
+    width: 98%;
+    /* 2% space for borders */
+  }
+
+  /* line 444, ../sass/typography/typography.scss */
+  div.csc-textpic-border img {
+    border: none !important;
+  }
+
+  /* line 447, ../sass/typography/typography.scss */
+  .bordered, div.csc-textpic-border img {
+    background-color: #ccc !important;
+    border: 2px #ccc solid !important;
+    border: 2px white solid !important;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  }
+
+  /* line 455, ../sass/typography/typography.scss */
+  dd.csc-textpic-caption {
+    font-size: 0.75em;
+    line-height: 2.051em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: tranparent;
+    text-shadow: red, 1, 1, 1, 5;
+    margin-top: 0.769em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 2.308em;
+  }
+
+  /* line 466, ../sass/typography/typography.scss */
+  .csc-textpicHeader h1, .csc-textpicHeader h2, .csc-textpicHeader h3, .csc-textpicHeader h4, .csc-textpicHeader h5 {
+    margin-top: 0.154em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+
+  /*
+   * Grids
+   */
+  /* line 475, ../sass/typography/typography.scss */
+  .ym-g25, .ym-g33, .ym-g38 {
+    font-size: 0.75em;
+    line-height: 2.051em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 481, ../sass/typography/typography.scss */
+  .ym-g25 h1, .ym-g25 h2, .ym-g25 h3, .ym-g25 h4, .ym-g33 h1, .ym-g33 h2, .ym-g33 h3, .ym-g33 h4, .ym-g38 h1, .ym-g38 h2, .ym-g38 h3, .ym-g38 h4 {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.026em;
+  }
+
+  /* line 486, ../sass/typography/typography.scss */
+  .ym-g60, .ym-g62, .ym-g66, .ym-g75, .ym-g80 {
+    font-size: 0.875em;
+    line-height: 1.758em;
+    line-height: 1.538em;
+  }
+
+  /**
+  * ----------------------------------------------------------------------- #
+  *
+  * Generic Content Classes
+  *
+  * (en) standard classes for positioning and highlighting
+  * (de) Standardklassen zur Positionierung und Hervorhebung
+  *
+  * @section content-generic-classes
+  */
+  /* line 505, ../sass/typography/typography.scss */
+  .label {
+    font-family: Verdana, Geneva, sans-serif;
+    padding: 1px 6px 2px;
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: normal;
+    white-space: nowrap;
+    -webkit-border-radius: 3px;
+    -moz-radius: 3px;
+    border-radius: 3px;
+    background: #06C;
+    color: #fff;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  /* line 521, ../sass/typography/typography.scss */
+  .box-1, p.highlight, div.highlight, p.dimmed, div.dimmed, p.note, div.note, p.info, div.info, p.warning, div.warning, .success, .error {
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0.769em;
+    padding-bottom: 0.769em;
+    margin-bottom: 0em;
+    padding-left: 0.5em;
+    padding-right: 1em;
+  }
+  /* line 527, ../sass/typography/typography.scss */
+  .box-1 > *:first-child, p.highlight > *:first-child, div.highlight > *:first-child, p.dimmed > *:first-child, div.dimmed > *:first-child, p.note > *:first-child, div.note > *:first-child, p.info > *:first-child, div.info > *:first-child, p.warning > *:first-child, div.warning > *:first-child, .success > *:first-child, .error > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  /* line 532, ../sass/typography/typography.scss */
+  .box-1.xbig, p.xbig.highlight, blockquote p.highlight.xbig, div.xbig.highlight, blockquote div.highlight.xbig, p.xbig.dimmed, blockquote p.dimmed.xbig, div.xbig.dimmed, blockquote div.dimmed.xbig, p.xbig.note, blockquote p.note.xbig, div.xbig.note, blockquote div.note.xbig, p.xbig.info, blockquote p.info.xbig, div.xbig.info, blockquote div.info.xbig, p.xbig.warning, blockquote p.warning.xbig, div.xbig.warning, blockquote div.warning.xbig, .xbig.success, blockquote p.success.xbig, blockquote div.success.xbig, .xbig.error, blockquote p.error.xbig, blockquote div.error.xbig, blockquote p.box-1.xbig, blockquote div.box-1.xbig {
+    font-size: 2em;
+    line-height: 0.769em;
+  }
+  /* line 536, ../sass/typography/typography.scss */
+  .box-1.xxbig, p.xxbig.highlight, blockquote p.highlight.xxbig, div.xxbig.highlight, blockquote div.highlight.xxbig, p.xxbig.dimmed, blockquote p.dimmed.xxbig, div.xxbig.dimmed, blockquote div.dimmed.xxbig, p.xxbig.note, blockquote p.note.xxbig, div.xxbig.note, blockquote div.note.xxbig, p.xxbig.info, blockquote p.info.xxbig, div.xxbig.info, blockquote div.info.xxbig, p.xxbig.warning, blockquote p.warning.xxbig, div.xxbig.warning, blockquote div.warning.xxbig, .xxbig.success, blockquote p.success.xxbig, blockquote div.success.xxbig, .xxbig.error, blockquote p.error.xxbig, blockquote div.error.xxbig, blockquote p.box-1.xxbig, blockquote div.box-1.xxbig {
+    font-size: 3em;
+    line-height: 0.513em;
+  }
+
+  /* line 543, ../sass/typography/typography.scss */
+  p.highlight, div.highlight {
+    background-color: #192755;
+    color: white;
+  }
+  /* line 548, ../sass/typography/typography.scss */
+  p.highlight *, div.highlight * {
+    color: white;
+  }
+  /* line 553, ../sass/typography/typography.scss */
+  p.dimmed, div.dimmed {
+    background-color: #e8e9ee;
+    color: #192755;
+  }
+  /* line 559, ../sass/typography/typography.scss */
+  p.note, div.note {
+    background-color: #fbe3e4;
+    color: #8a1f11;
+  }
+  /* line 565, ../sass/typography/typography.scss */
+  p.info, div.info {
+    background-color: rgba(122, 122, 122, 0.6);
+    color: #205791;
+  }
+  /* line 570, ../sass/typography/typography.scss */
+  p.warning, div.warning {
+    background-color: #fbe3e4;
+    color: #8a1f11;
+  }
+  /* line 577, ../sass/typography/typography.scss */
+  p hr, div hr {
+    border-top-color: #333;
+    border-top-style: solid;
+    border-top-width: 0.077em;
+    padding-top: 1.462em;
+    margin-top: 1.538em;
+    padding-top: 1.538em;
+    padding-bottom: 1.538em;
+    margin-bottom: 1.538em;
+    -webkit-box-shadow: 0 0 -1px 0 #cccccc;
+    -moz-box-shadow: 0 0 -1px 0 #cccccc;
+    box-shadow: 0 0 -1px 0 #cccccc;
+  }
+  /* line 583, ../sass/typography/typography.scss */
+  p.rulerBefore, div.rulerBefore {
+    border-top-style: solid;
+    border-top-width: 0.077em;
+    padding-top: -0.077em;
+    margin-top: 0em;
+    padding-top: 0.769em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    border-top-color: #4f4f4f;
+  }
+  /* line 588, ../sass/typography/typography.scss */
+  p.rulerAfter, div.rulerAfter {
+    border-bottom-style: solid;
+    border-bottom-width: 0.077em;
+    padding-bottom: -0.077em;
+    line-height: 1.538em;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0.769em;
+    border-top-color: #4f4f4f;
+    -webkit-box-shadow: 0 0 -1px 0 #cccccc;
+    -moz-box-shadow: 0 0 -1px 0 #cccccc;
+    box-shadow: 0 0 -1px 0 #cccccc;
+  }
+  /* line 596, ../sass/typography/typography.scss */
+  p.xbig, blockquote p.xbig, div.xbig, blockquote div.xbig {
+    font-size: 2em;
+    line-height: 0.769em;
+  }
+  /* line 599, ../sass/typography/typography.scss */
+  p.xxbig, blockquote p.xxbig, div.xxbig, blockquote div.xxbig {
+    font-size: 3em;
+    line-height: 1.026em;
+  }
+
+  /* line 604, ../sass/typography/typography.scss */
+  .success {
+    background-color: #fbe3e4;
+    color: #333333;
+  }
+
+  /* line 610, ../sass/typography/typography.scss */
+  .error {
+    background-color: #fbe3e4;
+    color: #333333;
+  }
+
+  /* line 615, ../sass/typography/typography.scss */
+  .align-left {
+    float: left;
+    display: inline;
+    margin-right: 1em;
+    margin-bottom: 1.538em;
+  }
+
+  /* line 622, ../sass/typography/typography.scss */
+  .align-right, blockquote p.align-right, blockquote div.align-right {
+    float: right;
+    display: inline;
+    margin-left: 1em;
+    margin-bottom: 1.538em;
+  }
+
+  /* line 629, ../sass/typography/typography.scss */
+  .align-center, blockquote p.align-center, blockquote div.align-center {
+    display: block;
+    text-align: center;
+    margin-bottom: 1.538em;
+  }
+
+  /* line 635, ../sass/typography/typography.scss */
+  .align-justify, blockquote p.align-justify, blockquote div.align-justify {
+    display: block;
+    text-align: justify;
+    margin-bottom: 1.538em;
+  }
+
+  /* line 645, ../sass/typography/typography.scss */
+  blockquote p.highlight, blockquote div.highlight {
+    color: white;
+    margin-top: 0em;
+    padding-top: 0.769em;
+    padding-bottom: 0.769em;
+    margin-bottom: 0em;
+  }
+
+  /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Tables | Tabellen
+  *
+  * (en) Generic classes for table-width and design definition
+  * (de) Generische Klassen für die Tabellenbreite und Gestaltungsvorschriften für Tabellen
+  *
+  * @section content-tables
+  */
+  /* line 2, ../sass/partials/_tables.scss */
+  table {
+    width: 100%;
+    margin: 1.3571em 0 0 0;
+    border-collapse: collapse;
+    color: #4f4f4f;
+  }
+  /* line 8, ../sass/partials/_tables.scss */
+  table caption {
+    font-variant: small-caps;
+  }
+  /* line 12, ../sass/partials/_tables.scss */
+  table th, table td {
+    line-height: 1.5em;
+    vertical-align: top;
+    padding: 0.7143em 0.5em;
+  }
+  /* line 16, ../sass/partials/_tables.scss */
+  table th *:first-child, table td *:first-child {
+    margin-top: 0;
+  }
+  /* line 22, ../sass/partials/_tables.scss */
+  table thead th {
+    text-align: left;
+    color: #000;
+    border-bottom: 2px white solid;
+  }
+  /* line 31, ../sass/partials/_tables.scss */
+  table tbody tr:hover th, table tbody tr:hover td {
+    background: #dddddd;
+  }
+  /* line 36, ../sass/partials/_tables.scss */
+  table tbody th {
+    text-align: left;
+    border-top: 1px white solid;
+    text-align: left;
+  }
+  /* line 41, ../sass/partials/_tables.scss */
+  table tbody td {
+    text-align: left;
+    border-top: 1px solid white;
+  }
+  /* line 48, ../sass/partials/_tables.scss */
+  table.narrow {
+    margin: 1.4286em 0 0 0;
+    padding: 0 0.5em;
+    line-height: 1.4286em;
+  }
+  /* line 52, ../sass/partials/_tables.scss */
+  table.narrow th, table.narrow td {
+    padding: 0 0.5em;
+    line-height: 1.4286em;
+  }
+  /* line 58, ../sass/partials/_tables.scss */
+  table.bordertable {
+    border: 1px white solid;
+  }
+
+  /* line 71, ../sass/partials/_tables.scss */
+  table.contenttable-0 thead th, table.contenttable-0 tbody th {
+    background-color: white;
+    color: black;
+    border-top: 1px #eeeeee solid;
+    border-bottom: 1px #eeeeee solid;
+  }
+  /* line 75, ../sass/partials/_tables.scss */
+  table.contenttable-0 thead th.td-last, table.contenttable-0 tbody th.td-last {
+    border-right: 1px #eeeeee solid;
+  }
+  /* line 78, ../sass/partials/_tables.scss */
+  table.contenttable-0 thead th.td-0, table.contenttable-0 tbody th.td-0 {
+    border-left: 1px #eeeeee solid;
+  }
+  /* line 85, ../sass/partials/_tables.scss */
+  table.contenttable-0 tbody td {
+    border-bottom: 1px #e6e6e6;
+  }
+  /* line 89, ../sass/partials/_tables.scss */
+  table.contenttable-0 tbody tr.tr-even {
+    background-color: white;
+    color: black;
+  }
+  /* line 92, ../sass/partials/_tables.scss */
+  table.contenttable-0 tbody tr.tr-odd {
+    background-color: white;
+    color: black;
+  }
+  /* line 95, ../sass/partials/_tables.scss */
+  table.contenttable-0 tbody tr:hover td {
+    background-color: #cccccc;
+    color: black;
+  }
+
+  /* line 71, ../sass/partials/_tables.scss */
+  table.contenttable-1 thead th, table.contenttable-1 tbody th {
+    background-color: white;
+    color: black;
+    border-top: 1px #eeeeee solid;
+    border-bottom: 1px #eeeeee solid;
+  }
+  /* line 75, ../sass/partials/_tables.scss */
+  table.contenttable-1 thead th.td-last, table.contenttable-1 tbody th.td-last {
+    border-right: 1px #eeeeee solid;
+  }
+  /* line 78, ../sass/partials/_tables.scss */
+  table.contenttable-1 thead th.td-0, table.contenttable-1 tbody th.td-0 {
+    border-left: 1px #eeeeee solid;
+  }
+  /* line 85, ../sass/partials/_tables.scss */
+  table.contenttable-1 tbody td {
+    border-bottom: 1px #c4c4c4;
+  }
+  /* line 89, ../sass/partials/_tables.scss */
+  table.contenttable-1 tbody tr.tr-even {
+    background-color: #dddddd;
+    color: black;
+  }
+  /* line 92, ../sass/partials/_tables.scss */
+  table.contenttable-1 tbody tr.tr-odd {
+    background-color: white;
+    color: black;
+  }
+  /* line 95, ../sass/partials/_tables.scss */
+  table.contenttable-1 tbody tr:hover td {
+    background-color: #aaaaaa;
+    color: black;
+  }
+}

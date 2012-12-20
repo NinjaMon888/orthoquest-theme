@@ -1,0 +1,51 @@
+[globalVar = TSFE:id= {$plugin.tx_srfeuserregister_pi1.editPID}]
+plugin.tx_srfeuserregister_pi1.edit.fields = password
+[global]
+
+[globalVar = TSFE:id = {$plugin.tx_srfeuserregister_pi1.registerPID}, TSFE:id= {$plugin.tx_srfeuserregister_pi1.editPID}]
+
+
+page.includeJSFooterlibs.jQuery = {$tplDir}js/jquery/jquery-1.7.2.min.js
+page.includeJSFooterlibs.jquery-ui = {$tplDir}js/jquery/jquery-ui-1.8.21.custom.min.js
+page.includeJSFooter.metadata = {$tplDir}js/jquery/validation/jquery.metadata.js
+page.includeJSFooter.validate = {$tplDir}js/jquery/validation/jquery.validate.js
+page.includeJSFooter.validationInit = {$tplDir}js/jquery/validation/validationInit.js
+
+page.includeJSFooter.tabsInit = {$extTplDir}sr_feuser_register/tabsInit.js
+page.includeCSS.jquery-ui = {$tplDir}css/forms/ui-lightness/jquery-ui-1.8.21.custom.css
+[global]
+
+plugin.tx_srfeuserregister_pi1 {
+    create.evalValues {
+      zip = preg[/^([0-9]{5})(-[0-9]{4})?$/i]
+    }
+    
+    displayRequired.wrap = <sup class="ym-required">|</sup>
+    extraLabels = tx_feuserquestionaire_height_cm,tx_feuserquestionaire_weight_kg,change_pw, addressData, personalData, extendedData, loginData 
+    }
+    
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.tx_feuserquestionaire_height_cm = Größe
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.missing_tx_feuserquestionaire_height_cm = Bitte geben Sie Ihre Körpergröße an
+
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.tx_feuserquestionaire_height_cm = Height
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.missing_tx_feuserquestionaire_height_cm = Field Height is required
+
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.tx_feuserquestionaire_weight_kg = Gewicht
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.missing_tx_feuserquestionaire_weight_kg = Bitte geben Sie Ihr Gewicht an
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.tx_feuserquestionaire_weight_kg = Weight
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.missing_tx_feuserquestionaire_weight_kg = Field weight is required
+
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.change_pw = Passwort ändern
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.change_pw = Change password
+
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.loginData = Login-Informationen
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.loginData = Login Information
+
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.personalData = Pers. Daten
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.personalData = About you
+
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.addressData = Adresse
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.addressData = Address
+
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.de.extendedData = Sonstiges
+plugin.tx_srfeuserregister_pi1._LOCAL_LANG.default.extendedData = Extended

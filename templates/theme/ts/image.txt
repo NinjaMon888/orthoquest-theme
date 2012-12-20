@@ -1,0 +1,181 @@
+## USER LISTING
+
+plugin.tx_feuserlisting_pi1.listView {
+  customProcessing {
+    
+    image = IMAGE
+    image.file {
+      import = uploads/questionaire/
+      import.field = image
+      import.listNum = 0
+      maxW = 200
+      maxH = 300
+    }
+    
+    tx_feuserquestionaire_oswestry_files = TEXT
+    tx_feuserquestionaire_oswestry_files {
+      
+      field = tx_feuserquestionaire_oswestry_files
+      parameter.dataWrap = uploads/questionaire/{field:tx_feuserquestionaire_oswestry_files}
+      typolink.jumpurl = 1
+      
+      wrap = |
+      }
+        
+    tx_feuserquestionaire_oswestry_images = COA
+    tx_feuserquestionaire_oswestry_images {
+      
+      10 = IMAGE
+      10.file {
+        import = uploads/tx_feuserquestionaire/
+        import.field = tx_feuserquestionaire_oswestry_images
+        import.listNum = 0
+        maxW = 200
+        maxH = 300
+      }
+      10.imageLinkWrap = 1
+      10.imageLinkWrap.enable = 1
+      10.imageLinkWrap.JSWindow = 1
+      
+      10.imageLinkWrap.file {
+        import = uploads/tx_feuserquestionaire/
+        import.field = tx_feuserquestionaire_oswestry_images
+        import.listNum = 0
+        }
+        
+      20 < .10
+      20.file.import.listNum = 1
+      30 < .10
+      30.file.import.listNum = 2
+      
+      40 < .10
+      40.file.import.listNum = 3
+      
+      50 < .10
+      50.file.import.listNum = 4
+    }
+    
+    tx_feuserquestionaire_womac_files < .tx_feuserquestionaire_oswestry_files
+    tx_feuserquestionaire_womac_files.field = tx_feuserquestionaire_womac_files
+    
+    tx_feuserquestionaire_womac_images < .tx_feuserquestionaire_oswestry_images
+    tx_feuserquestionaire_womac_images {
+      10.file.import.field = tx_feuserquestionaire_womac_images
+      10.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_womac_images
+      20.file.import.field = tx_feuserquestionaire_womac_images
+      20.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_womac_images
+      30.file.import.field = tx_feuserquestionaire_womac_images
+      30.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_womac_images
+      40.file.import.field = tx_feuserquestionaire_womac_images
+      40.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_womac_images
+      50.file.import.field = tx_feuserquestionaire_womac_images
+      50.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_womac_images
+      }
+    
+    
+    tx_feuserquestionaire_oss_files < .tx_feuserquestionaire_oswestry_files
+    tx_feuserquestionaire_oss_files.field = tx_feuserquestionaire_oss_files
+    
+    tx_feuserquestionaire_oss_images < .tx_feuserquestionaire_oswestry_images
+    tx_feuserquestionaire_oss_images {
+      10.file.import.field = tx_feuserquestionaire_oss_images
+      10.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oss_images
+      20.file.import.field = tx_feuserquestionaire_oss_images
+      20.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oss_images
+      30.file.import.field = tx_feuserquestionaire_oss_images
+      30.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oss_images
+      40.file.import.field = tx_feuserquestionaire_oss_images
+      40.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oss_images
+      50.file.import.field = tx_feuserquestionaire_oss_images
+      50.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oss_images
+      }
+    
+    tx_feuserquestionaire_oes_files < .tx_feuserquestionaire_oswestry_files
+    tx_feuserquestionaire_oes_files.field = tx_feuserquestionaire_oes_files
+    
+    tx_feuserquestionaire_oes_images < .tx_feuserquestionaire_oswestry_images
+    tx_feuserquestionaire_oes_images {
+      10.file.import.field = tx_feuserquestionaire_oes_images
+      10.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oes_images
+      20.file.import.field = tx_feuserquestionaire_oes_images
+      20.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oes_images
+      30.file.import.field = tx_feuserquestionaire_oes_images
+      30.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oes_images
+      40.file.import.field = tx_feuserquestionaire_oes_images
+      40.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oes_images
+      50.file.import.field = tx_feuserquestionaire_oes_images
+      50.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_oes_images
+      }
+    
+    tx_feuserquestionaire_vmcss_files < .tx_feuserquestionaire_oswestry_files
+    tx_feuserquestionaire_vmcss_files.field = tx_feuserquestionaire_vmcss_files
+    
+    tx_feuserquestionaire_vmcss_images < .tx_feuserquestionaire_oswestry_images
+    tx_feuserquestionaire_vmcss_images {
+      10.file.import.field = tx_feuserquestionaire_vmcss_images
+      10.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_vmcss_images
+      20.file.import.field = tx_feuserquestionaire_vmcss_images
+      20.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_vmcss_images
+      30.file.import.field = tx_feuserquestionaire_vmcss_images
+      30.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_vmcss_images
+      40.file.import.field = tx_feuserquestionaire_vmcss_images
+      40.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_vmcss_images
+      50.file.import.field = tx_feuserquestionaire_vmcss_images
+      50.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_vmcss_images
+      }
+    
+    tx_feuserquestionaire_fa_files < .tx_feuserquestionaire_oswestry_files
+    tx_feuserquestionaire_fa_files.field = tx_feuserquestionaire_fa_files
+    
+    tx_feuserquestionaire_fa_images < .tx_feuserquestionaire_oswestry_images
+    tx_feuserquestionaire_fa_images{
+      10.file.import.field = tx_feuserquestionaire_fa_images
+      10.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_fa_images
+      20.file.import.field = tx_feuserquestionaire_fa_images
+      20.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_fa_images
+      30.file.import.field = tx_feuserquestionaire_fa_images
+      30.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_fa_images
+      40.file.import.field = tx_feuserquestionaire_fa_images
+      40.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_fa_images
+      50.file.import.field = tx_feuserquestionaire_fa_images
+      50.10.imageLinkWrap.file.import.field = tx_feuserquestionaire_fa_images
+      }
+    
+
+    
+    /* Example for custom processing of username field:
+    username = TEXT
+    username.field = username
+    username.wrap = <b>|</b>
+    */
+  }
+    results_at_a_time = 50
+    maxPages = 20
+  show.email = 1
+  show.email_in_details = 1
+  show.email_in_details_when_logged_in = 1
+  alwaysPrev = 1
+  tableParams_list =
+}
+
+plugin.tx_feuserlisting_pi1.singleView.customProcessing < plugin.tx_feuserlisting_pi1.listView.customProcessing
+
+plugin.tx_feuserlisting_pi1._LOCAL_LANG.default {
+  # Example for setting the list field header of a column called "date_of_birth":
+  # listFieldHeader_date_of_birth = Date of birth
+  listFieldHeader_gender = Salutation
+  listFieldHeader_tx_feuserquestionaire_womac_files = Womac Files
+  listFieldHeader_tx_feuserquestionaire_womac_images = Womac Images
+  listFieldHeader_tx_feuserquestionaire_oswestry_files = Oswestry Files
+  listFieldHeader_tx_feuserquestionaire_oswestry_images = Oswestry Images
+  listFieldHeader_tx_feuserquestionaire_oss_files = Shoulder Files
+  listFieldHeader_tx_feuserquestionaire_oss_images = Shoulder Images
+  listFieldHeader_tx_feuserquestionaire_oes_files = Elbow Files
+  listFieldHeader_tx_feuserquestionaire_oes_images = Elbow Images
+  listFieldHeader_tx_feuserquestionaire_vmcss_files = Cervical spine/neck Files
+  listFieldHeader_tx_feuserquestionaire_vmcss_images = Cervical spine/neck Images
+  listFieldHeader_tx_feuserquestionaire_fa_files = Foot/Ankle Files
+  listFieldHeader_tx_feuserquestionaire_fa_images = Foot/Ankle Images
+}
+
+

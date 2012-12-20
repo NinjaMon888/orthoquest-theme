@@ -1,0 +1,37 @@
+<form onsubmit="tx_rsaauth_feencrypt(this);; return true;" method="post" target="_top" action="index.php?id=2" class="ym-form ym-columnar">
+  <fieldset>
+    <legend></legend>
+    <div class="ym-fbox-text">
+      <label for="user">Benutzername:</label>
+      <input type="text" value="" name="user" id="user">
+    </div>
+    <div class="ym-fbox-text">
+      <label for="pass">Passwort:</label>
+      <input type="password" value="" name="pass" id="pass">
+    </div>
+
+    <div class="felogin-hidden">
+      <input type="hidden" value="login" name="logintype">
+      <input type="hidden" value="28" name="pid">
+      <input type="hidden" value="" name="redirect_url">
+      <input type="hidden" value="0" name="tx_felogin_pi1[noredirect]">
+      <script src="http://weha.t3-hamburg.de/typo3/sysext/rsaauth/resources/jsbn/jsbn.js" type="text/javascript">
+      </script>
+      <script src="http://weha.t3-hamburg.de/typo3/sysext/rsaauth/resources/jsbn/prng4.js" type="text/javascript">
+      </script>
+      <script src="http://weha.t3-hamburg.de/typo3/sysext/rsaauth/resources/jsbn/rng.js" type="text/javascript">
+      </script>
+      <script src="http://weha.t3-hamburg.de/typo3/sysext/rsaauth/resources/jsbn/rsa.js" type="text/javascript">
+      </script>
+      <script src="http://weha.t3-hamburg.de/typo3/sysext/rsaauth/resources/jsbn/base64.js" type="text/javascript">
+      </script>
+      <script src="http://weha.t3-hamburg.de/typo3/sysext/rsaauth/resources/rsaauth_min.js" type="text/javascript">
+      </script>
+      <input type="hidden" value="BE8369833B0B091AA6E914656C25507A7819E3EA139534DBF10534E0BEF300ACE695CCE04E320D5BFB461DB7D0EC45CED8BDFF3A35A8AE1D2B1929EC121FC745E1F1A697CE3EA2DA118E3FA26403B8AB439093DAE7930E3790E1469F1F083F1AA361E938995C09D71E7969351ECD227A2A12CD3359B47B0C1C934804F05504B1" name="n" id="rsa_n">
+      <input type="hidden" value="10001" name="e" id="rsa_e">
+    </div>
+  </fieldset>
+  <div class="ym-fbox-button">
+    <input type="submit" value="Anmelden" name="submit" class="ym-button">
+  </div>
+</form>

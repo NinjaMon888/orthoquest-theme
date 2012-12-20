@@ -1,0 +1,208 @@
+// dimensions
+$fullpage: true !default;
+
+$page-min-width: 760px;
+$page-max-width: 960px;
+
+// font-size
+$base-font-size: 14px ;
+$base-line-height:20px;
+$grid-background-baseline-height: $base-line-height;
+
+
+$shadow-1: rgba(0,0,0,0.25) 0 0 3px;
+$ym-heading-font:  Helvetica, Arial, sans-serif;
+// @import "blueprint";
+// colors
+$ym-mainmenu-font-family: Helvetica, Arial, sans-serif;
+
+$ym-body-bg-color:   #ddd;
+$ym-heading-color:     #444;
+$ym-font-color:     #444;
+$ym-quiet-color:    #ccc;
+$ym-loud-color:    darken(#4D90FE, 10%);
+$ym-alt-text-color: #333;
+$ym-border-color: #999;
+
+$ym-link-color:         #0B1C36;
+$ym-link-color-hover:   darken($ym-link-color, 6.67%);
+$ym-link-color-focus:   $ym-link-color-hover;
+$ym-link-color-active:  $ym-link-color-hover;
+$ym-link-color-visited: $ym-link-color;
+
+$ym-header-bg-color:  #fff;
+$ym-header-bg-image: none !default;
+$ym-header-color: #444;
+$ym-header-border-color: $ym-loud-color;
+
+$ym-mainmenu-bg-color:  #fff;
+$ym-mainmenu-bg-image: none;
+$ym-mainmenu-color: #222;
+$ym-mainmenu-border-color: $ym-header-bg-color;
+
+$ym-mainmenu-item-bg-color: $ym-loud-color;
+$ym-mainmenu-item-bg-color-hover: #fff !default;
+
+$ym-mainmenu-item-bg-color-active: $ym-mainmenu-item-bg-color-hover !default;
+$ym-mainmenu-item-color-active: $ym-mainmenu-color !default;
+
+$ym-mainmenu-item-bg-color-current:$ym-mainmenu-item-bg-color-hover !default;
+$ym-mainmenu-item-color-current:$ym-mainmenu-color !default;
+
+$sf-bg-color: #fff !default;
+$sf-bg-color-hover: #fcd9d9 !default;
+$sf-bg-color-current: $sf-bg-color !default;
+$sf-bg-color-active: $sf-bg-color !default;
+
+$sf-color: $ym-mainmenu-color;
+$sf-color-hover: $sf-color !default;
+$sf-color-active: $sf-color !default;
+$sf-color-current: $sf-color !default;
+
+$sf-border-color: #fff;
+
+$ym-hlist-bg-color:   $ym-header-bg-color;
+$ym-hlist-bg-image: none;
+$ym-hlist-color: #fff ;
+$ym-hlist-border-color: #ccc;
+$ym-hlist-link-color: #444;
+$ym-hlist-link-color-hover: $ym-loud-color;
+$ym-hlist-link-color-active: $ym-hlist-link-color-hover;
+$ym-hlist-link-color-visited: $ym-hlist-link-color;
+$ym-hlist-link-color-focus: $ym-hlist-link-color-hover;
+
+$ym-vlist-bg-color:   #fff !default;
+$ym-vlist-bg-image: none !default;
+$ym-vlist-color: $ym-alt-text-color !default;
+$ym-vlist-border-color: #ffffff;
+$ym-vlist-link-color: $ym-vlist-color;
+$ym-vlist-link-color-hover: $ym-loud-color !default;
+$ym-vlist-link-color-active: $ym-vlist-link-color-hover;
+$ym-vlist-link-color-visited: $ym-vlist-link-color;
+$ym-vlist-link-color-focus: $ym-vlist-link-color-hover;
+$ym-vlist-text-shadow-color: lighten($ym-vlist-link-color, 6.67%);
+
+$ym-breadcrumbs-bg-color: $ym-header-bg-color;
+$ym-breadcrumbs-bg-image: none;
+$ym-breadcrumbs-color: #999 ;
+$ym-breadcrumbs-border-color: #ffffff;
+$ym-breadcrumbs-link-color:$ym-breadcrumbs-color;
+$ym-breadcrumbs-link-color-hover: lighten($ym-breadcrumbs-color, 6.67%);
+$ym-breadcrumbs-link-color-active: $ym-breadcrumbs-link-color-hover;
+$ym-breadcrumbs-link-color-visited: $ym-breadcrumbs-link-color;
+$ym-breadcrumbs-link-color-focus: $ym-breadcrumbs-link-color-hover;
+
+$ym-teaser-bg-color: #fff;
+$ym-teaser-bg-image: none;
+$ym-teaser-color: $ym-font-color;
+$ym-teaser-color: $ym-font-color;
+$ym-teaser-border-color: $ym-font-color;
+
+$ym-main-bg-color: #fff;
+$ym-main-bg-image: none;
+$ym-main-color: $ym-font-color ;
+$ym-main-border-color: $ym-font-color;
+
+$ym-col1-bg-color: #fff;
+$ym-col1-bg-image: none;
+$ym-col1-color: $ym-font-color;
+$ym-col1-border-color: $ym-font-color;
+
+$ym-col2-bg-color:#fff;
+$ym-col2-bg-image: none;
+$ym-col2-color: $ym-font-color;
+$ym-col2-border-color: $ym-font-color;
+
+$ym-col3-bg-color: #fff;
+$ym-col3-bg-image: none;
+$ym-col3-color: $ym-font-color;
+$ym-col3-border-color: $ym-font-color;
+
+
+$ym-footer-bg-color: #fff;
+$ym-footer-color: rgb(130,130,136);
+$ym-footer-border-color: $ym-header-bg-color;
+
+
+$ym-feedback-border-color: #dddddd !default;
+$ym-hruler-color: #666 !default;
+
+$ym-highlight-bg-color:      $ym-loud-color !default;
+$ym-highlight-color: #fff !default;
+$ym-highlight-border-color:  #c6d880 !default;
+
+$ym-dimmed-color:          #514721 !default;
+$ym-dimmed-bg-color:       rgba( 0,0,0,0.4) !default;
+$ym-dimmed-border-color:   #ffd324 !default;
+
+$ym-info-color:            #205791 !default;
+$ym-info-bg-color:         rgba( 122,122,122,0.6) !default;
+$ym-info-border-color:     #92cae4 !default;
+
+$ym-note-color:           #8a1f11 !default;
+$ym-note-bg-color:        #fbe3e4 !default;
+$ym-note-border-color:    #fbc2c4 !default;
+
+$ym-warning-bg-color:        #fbe3e4 !default;
+$ym-warning-color:           #8a1f11 !default;
+$ym-warning-border-color:    #fbc2c4 !default;
+
+$ym-success-color:           #8a1f11 !default;
+$ym-success-bg-color:        #fbe3e4 !default;
+$ym-success-border-color:    #fbc2c4 !default;
+
+
+$ym-error-color:           #8a1f11 !default;
+$ym-error-bg-color:        #fbe3e4 !default;
+$ym-error-border-color:    #fbc2c4 !default;
+
+$ym-added-color:             white !default;
+$ym-added-bg-color:        #006600 !default;
+$ym-removed-color:           white !default;
+$ym-removed-bg-color:      #990000 !default;
+
+$ym-table-header-color: #fff;
+$ym-table-stripe-color: #fff;
+
+$ym-tabs-border-color: darken(rgb(231,233,234),16.67%);
+$ym-tabs-header-color: $ym-font-color;
+$ym-tabs-header-color-hover: $ym-loud-color;
+$ym-tabs-header-bg-color-hover: rgb(231,233,234);
+$ym-tabs-header-bg-color-current: rgb(231,233,234);
+$ym-tabs-header-color-current: $ym-loud-color;
+
+$ym-accordion-bg-color: #ddd;
+$ym-accordion-color: $ym-font-color;
+$ym-accordion-border-color: #fff;
+$ym-accordion-header-bg-color: $ym-loud-color;
+$ym-accordion-header-color: #fff;
+
+@import "compass";
+@import "compass/layout/grid-background";
+@import "yaml4";
+@import "partials/columns";
+@import "partials/tables";
+@import "partials/sassybuttons";
+
+@mixin bgimg-position($imgurl, $X, $Y, $repeat) {
+  background: transparent image-url($imgurl) scroll $X $Y $repeat; 
+  }
+
+@mixin establish-baseline-by-layout($font-size: $base-fontsize, $layout: $mainlayout) {
+  
+  
+}
+
+// Sets background-color with a contrasted font-color
+@mixin background_base ($bgcolor: $ym-header-bg-color, $contrast: 50%) {
+  @if $bgcolor != "transparent" {
+  @include contrasted($background-color: $bgcolor, $dark: #333, $light: #f4f4f4, $threshold: $contrast);
+  }
+  @else {
+    color: $ym-font-color;
+  }
+  
+}
+
+
+

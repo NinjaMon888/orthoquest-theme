@@ -1,0 +1,182 @@
+
+#########################################
+Multicolums Presets
+#########################################
+tx_multicolumn {
+	config {
+		advancedLayouts {
+			maxNumberOfColumns = 10
+			makeEqualElementBoxHeight {
+				includeFiles {
+					jQuery >
+					jQuery {
+						priority = 0
+					}
+					
+					fixHeight =
+				}
+			}
+		}
+		effectBox {
+				# set effect key to only allow specific effect (eg. sudoSliderTabSliding,easyAccordion)
+			enableEffects = accessibleTabs,accessibleTabsSyncHeight,jqt-vAccordion
+			 
+		}
+		layoutPreset {
+				# setlayout key to only allow specific layout (eg. effectBox,3)
+			enableLayouts = 
+		}
+	}
+	
+	layoutPreset {
+		1 {
+			label = LLL:EXT:multicolumn/res/layout/locallang.xml:layout.1
+			icon = EXT:multicolumn/res/layout/1.gif
+			config {
+				# include a specific css for your preset layout 
+				#layoutCss = EXT:multicolumn/res/layout/1.css
+
+				# container settings
+					# % or px (if empty default measure is %)
+				#containerMeasure = %
+					# if you want to specifie a fixed width for column
+				#containerWidth =
+
+				# column settings
+					# number of columns
+				columns = 2
+
+				#columnMeasure =
+					#column width (optionSplit)
+				columnWidth = 50
+
+					# column margin (optionSplit) css string is allowed like (10px 0 0 15px)
+				#columnMargin =
+					# column padding (optionSplit) css string is allowed like (10px 0 0 15px)
+				#columnPadding = 0 6px 0 0 || 0 0 0 6px
+					# disable auto image shrink
+				#disableImageShrink
+
+					# Force equal height for each multicolumn item
+				#makeEqualElementBoxHeight = 1
+				
+			}
+		}
+
+		2 {
+			label = LLL:EXT:multicolumn/res/layout/locallang.xml:layout.2
+			icon = EXT:multicolumn/res/layout/2.gif
+			config {
+				columns = 3
+				columnWidth = 33
+			}
+
+		}
+		3 {
+			label = LLL:EXT:multicolumn/res/layout/locallang.xml:layout.3
+			icon = EXT:multicolumn/res/layout/3.gif
+			config {
+				columns = 4
+				columnWidth = 25
+			}
+
+		}
+		
+		10 {
+			label = LLL:EXT:multicolumn/res/layout/locallang.xml:layout.10
+			icon = EXT:multicolumn/res/layout/10.gif
+			config {
+				columns = 2
+					# option split is allowed!
+				columnWidth = 62 || 38
+			}
+		}
+
+		effectBox {
+			label = LLL:EXT:multicolumn/res/effects/locallang.xml:effectBox
+			icon = EXT:multicolumn/res/layout/effectSlider.gif
+			config {
+				columns = 1
+			}
+		}
+	}
+	
+	effectBox {
+		accessibleTabs {
+			label = Tabs
+			config {
+				effectBoxClass = js jquery_tabs
+				jsFiles {
+					jQuery = fileadmin/templates/theme/js/jquery/jquery.min.js
+					jQuery {
+						priority = 5
+					}
+					accessibleTabsJs = fileadmin/templates/theme/js/jquery/accessible-tabs/jquery.tabs.js
+					accessibleTabsInit = fileadmin/templates/theme/js/jquery/accessible-tabs/accessibleTabsInit.js
+				}
+				cssFiles {
+					accessibleTabs = fileadmin/templates/theme/css/accessible-tabs/tabs.css
+				}
+			}
+		}		
+			
+		accessibleTabsSyncHeight {
+			label = Tabs SyncHeight
+			config {
+				effectBoxClass = js jquery_tabs syncheight
+				jsFiles {
+					jQuery = fileadmin/templates/theme/js/jquery/jquery.min.js
+					jQuery {
+						priority = 5
+					}
+					accessibleTabsSyncHeightJs = fileadmin/templates/theme/js/jquery/accessible-tabs/jquery.tabs.js
+					accessibleTabsSyncHeightInit = fileadmin/templates/theme/js/jquery/accessible-tabs/accessibleTabsSyncHeightInit.js
+				}
+			
+				cssFiles {
+					accessibleTabsSyncHeight = fileadmin/templates/theme/css/accessible-tabs/tabs.css
+				}
+			}
+		}
+		
+		jqt-vAccordion {
+			label = Accordion vertikal
+			config {
+				effectBoxClass = accordion
+				jsFiles {
+					jQuery = fileadmin/templates/theme/js/jquery/jquery.min.js
+					jQuery {
+						priority = 1
+					}
+					jqt-vAccordionJs = fileadmin/templates/theme/js/jquery/jquery.tools.min.js
+					jqt-vAccordionInit = fileadmin/templates/theme/js/jquery/accordion/jqt-vAccordionInit.js
+				}
+			
+				cssFiles {
+					jqt-vAccordion = fileadmin/templates/theme/css/accordion/jqt-vAccordion.css
+				}
+			}
+		}
+		
+		
+			tabsSlideshow {
+			label = Slideshow 
+			config {
+				effectBoxClass = gradient-2
+				jsFiles {
+					jQuery = fileadmin/templates/theme/js/jquery/jquery.min.js
+					jQuery {
+						priority = 1
+					}
+					tabsSlideshowJS = fileadmin/templates/theme/js/jquery/tabs-slideshow/jquery.tools.min.js
+					
+					tabsSlideshowInit = fileadmin/templates/theme/js/jquery/tabs-slideshow/tabs-slideshowInit.js
+				}
+			
+				cssFiles {
+					tabsSlideshow = fileadmin/templates/theme/css/tabs-slideshow/tabs-slideshow.css
+				}
+			}
+		}
+	}
+}

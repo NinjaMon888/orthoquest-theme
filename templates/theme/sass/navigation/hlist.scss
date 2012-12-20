@@ -1,0 +1,167 @@
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * (en) Horizontal list navigation "hlist"
+ * (de) Horizontale Navigationsliste "hlist"
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         v4.0
+ * @revision        $Revision: 657 $
+ * @lastmodified    $Date: 2012-01-11 21:36:23 +0100 (Mi, 11 Jan 2012) $
+ */
+
+$ym-menuitem-active: #ccc !default;
+@import "partials/base";
+
+
+@media all
+{
+
+
+  .ym-hlist {
+    /* (en) containing floats in IE */
+    /* (de) Einfassen der Floats im IE */
+     width:100%;
+    // overflow:hidden;
+    position:relative;
+    line-height:1em;
+    ul {
+      margin:0;
+      padding: 0 ;
+      width:100%;
+      border: 1px solid #292929;
+      margin: 20px 0px 20px 0;
+      @include background-image(linear-gradient(top, #636363, #3c3c3f)); 
+      @include box-shadow(0 3px 3px #3c3c40);
+      /* (en|de) Bugfix:IE - Doubled Float Margin Bug */
+      display:inline;
+      float:right; /* LTR */
+      li {
+        /* (en|de) Bugfix:IE - Doubled Float Margin Bug */
+        display:inline;
+        float:left; /* LTR */
+        font-size:1em;
+        line-height:1em;
+        list-style-type:none;
+        margin: 0;
+        padding:0;
+        a, strong, span {
+          
+          display:block;
+          font-size:1em;
+          line-height: 1.5em;
+          padding: 0.5em 1em;
+          width:auto;
+          font-family: $ym-mainmenu-font-family;
+          font-weight:normal;
+          text-decoration:none;
+          text-shadow: 0 1px 1px rgba(0,0,0,.5);
+          text-align: center;
+          color: #fff;
+          border-right: 1px solid #323235;
+          border-left: 1px solid rgba(255, 255, 255, 0.2);
+          // This yields a gradient starting at the top with #fff, ending in #aaa
+          @include background-image(linear-gradient(top, #636363, #3c3c3f)); 
+          @include box-shadow( rgba(255, 255, 255, 0.2) 0 1px 0px inset , #292929 0 1px 0px );
+          &:focus, &:hover, &:active {
+            text-decoration:none;
+            outline: 0 none;
+            color:  #f58c00;
+            @include background-image(linear-gradient(top, #565658, #313132)); 
+          }
+          &.first {
+            padding-left: 1em;
+          }
+          &.current,&.active {
+            border-left: rgba(0,0,0,0);
+          @include background-image(
+            linear-gradient(top,#313132, #565658 )); 
+            color:  #f58c00;
+            
+          }
+          
+          &.last {
+            float: right;
+          }
+          
+        }
+      &.active {
+          /* (en) Repeat the main color from the image */
+          /* (de) Wiederholung der Hauptfarbe aus der Bilddatei */
+          
+          @include border-radius(0.2em);
+          &:focus, &:hover, &:active {
+              background:transparent;
+              color:#fff;
+              text-decoration:none;
+          }
+      }
+      
+      &.ls {
+        float: right;
+        PADDING-RIGHT: 1EM;
+          border: none;
+        a, span {
+          float: left;
+          border: none;
+          &.german {
+            @include replace-text(image-url('de.gif'));
+            &.active{
+              @include background-image(image-url('de-active.gif'));
+            }
+          }
+          &.english {
+            @include replace-text(image-url('us.gif'));
+            &.active{
+              @include background-image(image-url('us-active.gif'));
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+  /* search form
+  -------------------------------------- */
+  .ym-searchform {
+    float:right;
+    display: inline;
+    line-height: 2em;
+    padding: 0.5em 1.5em;
+  }
+
+  .ym-searchform .ym-searchfield {
+    background: #fff;
+    line-height: 1em;
+    padding: 0.25em;
+    width: 12em;
+    border: solid 1px #888;
+    border: solid 1px rgba(255,255,255,.1);
+    outline: none;
+
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+  }
+
+  .ym-searchform .ym-searchbutton {
+    color: #fff;
+    line-height: 1em;
+    padding: 0.25em;
+    border: solid 1px transparent;
+    text-shadow: 0 1px 1px rgba(0,0,0,.5);
+
+    @include border-radius(0.2em);
+
+    background: #5f5f5f;
+    background: rgba(255,255,255,.2);
+  }
+}
+}

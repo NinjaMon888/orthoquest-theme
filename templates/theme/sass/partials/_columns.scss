@@ -1,0 +1,215 @@
+
+
+@mixin columns-312 ($fullpage: false){ 
+  
+/*------------------------------------------------------------------------------
+ * 3 Spalten links, normal, rechts (3-1-2)
+ * 
+ */
+
+  .ym-312.teaser-all, .ym-312.all {
+    
+     /* center column */
+    .ym-col1 { 
+      width: 50%;
+      float:right;
+      margin-left: -75%;
+      margin-right: 25%;
+      background-color:$ym-col1-bg-color;
+      background-image:$ym-col1-bg-image;
+      color: $ym-col1-color;
+      }
+
+     /* left column */
+    .ym-col3 {
+      float: left;
+      width: 25%;
+      margin-left: 0;
+      margin-right: -5px;
+      background-color:$ym-col3-bg-color;
+      color: $ym-col3-color;
+      @include adjust-font-size-to($base-font-size * 0.75);
+      // @include baseline-grid-background($base-line-height * 1);
+      @include rhythm(0,1,1,1,$base-font-size);
+    }
+
+    /* right column */
+    .ym-col2 { 
+      width: 25%;
+      float:right;
+      margin-right: 0%;
+      @include adjust-font-size-to($base-font-size * 0.75);
+      @include adjust-leading-to(1, $base-font-size * 0.75);
+      // @include baseline-grid-background($base-line-height * 1);
+      @include rhythm(0,1,1,1,$base-font-size);
+    }
+  }
+  
+  
+/*------------------------------------------------------------------------------
+ * 2 Spalten normal, rechts (1-3)
+ * 
+ */
+
+  .ym-312.normal-right, .ym-312.teaser-normal-right {
+     /* content */
+    .ym-col1 { 
+      width: 75%;
+      background-color:$ym-col1-bg-color;
+      color: $ym-col1-color;
+    }
+    
+    .ym-col1 .ym-cbox, .ym-col1 .ym-cbox-left, .ym-col1 .ym-cbox-right { 
+      @include rhythm(0,0,1,1,$base-font-size);
+      @if $fullpage == false {
+        padding-left: 1em;
+        padding-right: 2em;
+      }
+      }
+       /* sidebar rechts */
+    .ym-col3 {
+      margin-left: 75%;
+      margin-right: 0;
+      background-color:$ym-col3-bg-color;
+      color: $ym-col3-color;
+      }
+      
+    .ym-col3 .ym-cbox, .ym-col3 .ym-cbox-left, .ym-col3 .ym-cbox-right  { 
+        @include adjust-font-size-to($base-font-size * 0.75);
+        // @include baseline-grid-background($base-line-height * 0.5);
+        @include rhythm(0,0,1,1,$base-font-size);
+        padding-left: 0em;
+        padding-right: 1em;
+     }
+    .ym-col2 {display: none;}
+  }
+ /*------------------------------------------------------------------------------
+ * 2 Spalten normal, rechts (1-3)
+ * 
+ */
+
+  .ym-231.normal-right, .ym-231.teaser-normal-right {
+     /* content */
+    .ym-col3 { 
+      width: 75%;
+      background-color:$ym-col3-bg-color;
+      color: $ym-col1-color;
+      overflow: hidden;
+    }
+    
+    .ym-col3 .ym-cbox, .ym-col3 .ym-cbox-left, .ym-col3 .ym-cbox-right { 
+      @include rhythm(0,0,1,1,$base-font-size);
+      @if $fullpage == false {
+        padding-left: 1em;
+        padding-right: 2em;
+      }
+      }
+       /* sidebar rechts */
+    .ym-col1 {
+      margin-left: 25%;
+      margin-right: 0;
+      background-color:$ym-col1-bg-color;
+      color: $ym-col1-color;
+      overflow: hidden;
+      }
+      
+    .ym-col1 .ym-cbox, .ym-col1 .ym-cbox-left, .ym-col1 .ym-cbox-right  { 
+        @include adjust-font-size-to($base-font-size * 0.75);
+        // @include baseline-grid-background($base-line-height * 0.5);
+        @include rhythm(0,0,1,1,$base-font-size);
+        padding-left: 0em;
+        padding-right: 0em;
+     }
+    .ym-col2 {display: none;}
+  }
+  
+/*------------------------------------------------------------------------------
+ *  2 Spalten links, normal (3-1)
+ * 
+ */
+ 
+  .ym-312 {
+    &.teaser-left-normal,
+    &.left-normal {
+    /* content */
+    .ym-col1 { 
+      width: 75%; float: right;
+    
+    
+     .ym-cbox, .ym-cbox-left, .ym-cbox-right {
+        background-color:$ym-col1-bg-color;
+        color: $ym-col1-color;
+        @include rhythm(0,0,1,1,$base-font-size);
+      @if $fullpage == false {
+        padding-left: 2em;
+        padding-right: 0em;
+      } 
+      @else {
+        padding-left: 2em;
+        padding-right: 0em;
+        // @include baseline-grid-background($base-line-height * 0.5);
+      }
+      }
+    }
+    /* sidebar */
+    .ym-col3 {
+      margin-right: 75%;
+      margin-left: 0;
+    
+    .ym-cbox, .ym-cbox-left, .ym-cbox-right {
+        background-color:$ym-col3-bg-color;
+        color: $ym-col3-color;
+      @include adjust-font-size-to($base-font-size * 0.75);
+      @include adjust-leading-to(0.75, $base-font-size * 0.75);
+      @include rhythm(0,0.6,1,1,$base-font-size*0.75);
+      @if $fullpage == false {
+        padding-left: 0em;
+        
+      }
+        padding-right: 1em;
+      // @include baseline-grid-background($base-line-height * 0.5);
+    }    
+    }
+    /* sidebar */
+    .ym-col2 {display: none;}
+    }
+  }
+  
+  
+/*------------------------------------------------------------------------------
+ * 1 Spalte
+ * 
+ */
+
+  .ym-312.teaser-normal, .ym-312.normal {
+    .ym-col1 {
+      
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      float: left;
+      clear: both;
+        @include rhythm(0,0,1,1,$base-font-size * 1);
+        // @include baseline-grid-background($base-line-height * 0.5);
+    .ym-cbox-left{
+    padding-left: 1em;
+    padding-right: 1em;
+    }
+    }
+    .ym-col2, .ym-col3 {
+      display: none;
+    }
+    
+  }
+  
+@media screen and ( max-width: 480px)  {
+.ym-312.teaser-normal, .ym-312.normal {
+    .ym-col1 {
+      .ym-cbox {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+      }
+    }
+  }
+}
+}

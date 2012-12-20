@@ -1,0 +1,210 @@
+#############################
+# Topnavi
+#############################
+
+lib.topnaviWrapper = COA
+lib.topnaviWrapper {
+  
+  10 = COA
+  10 {
+  stdWrap.wrap = <div class="ym-wrapper"><div class="ym-wbox">|</div></div>
+  stdWrap.wrap2 = <div id="topnav" class="{$additionalClassesTopnav}">|</div>
+  stdWrap.if.isTrue = {$enableFullpage}
+  10 < lib.topnavi
+  }
+  
+  20 = COA
+  20 {
+  stdWrap.wrap = <nav id="topnav" class="{$additionalClassesTopnav}">|</nav>
+  stdWrap.if.isFalse = {$enableFullpage}
+  10 < lib.topnavi
+  }
+ }
+
+
+
+#############################
+# Mainmenu
+#############################
+
+lib.mainmenuWrapper = COA
+lib.mainmenuWrapper {
+  
+  10 < lib.mainmenu
+  10 {
+  stdWrap.wrap = <div class="ym-wrapper"><div class="ym-wbox">|</div></div>
+  stdWrap.wrap2 = <nav id="mainmenu">|</nav>
+  stdWrap.if.isTrue = {$enableFullpage}
+  }
+  
+  20 < lib.mainmenu
+  20 {
+  stdWrap.wrap = <nav id="mainmenu">|</nav>
+  stdWrap.if.isFalse = {$enableFullpage}
+  }
+}
+
+
+
+
+
+#############################
+# Header
+#############################
+
+lib.headerWrapper = COA
+lib.headerWrapper {
+  10 = TEXT
+  10.value = <header class="{$additionalClassesHeader}"
+  10.wrap = |
+  
+  20 = IMG_RESOURCE
+  20 {
+    file {
+      maxH = {$header.bgImgMaxHeight}
+      maxW = {$header.bgImgMaxWidth}
+      import {
+       cObject = TEXT
+        #cObject.value = {$header.bgImg}
+        cObject.stdWrap {
+          required = 1
+          data = levelmedia:-1, "slide"
+          wrap = uploads/media/ | 
+          listNum = 0
+        }
+      }
+    }
+    stdWrap.wrap = style="background-image:url(|);"
+    stdWrap.if.isTrue.data = levelmedia:-1, "slide"
+  }
+  
+  30 = TEXT
+  30.value = >
+  
+  50 = COA
+  50 {
+  stdWrap.wrap = <div class="ym-wbox">|</div>
+  stdWrap.wrap2 = <div class="ym-wrapper">|</div>
+  stdWrap.if.isTrue = {$enableFullpage}
+  10 < lib.headerContent
+  20 < lib.permanentSearchbox
+  }
+  
+  60 = COA
+  60 {
+  stdWrap.if.isFalse = {$enableFullpage}
+  10 < lib.headerContent
+  20 < lib.permanentSearchbox
+  }
+  70 = TEXT
+  70.value = </header>
+  70.wrap = |
+}
+
+#############################
+# Breadcrumbs
+#############################
+
+lib.breadcrumbsWrapper = COA
+lib.breadcrumbsWrapper {
+  
+  10 = COA
+  10 {
+  stdWrap.wrap = <div class="ym-wbox">|</div>
+  stdWrap.wrap2 = <div class="ym-wrapper">|</div>
+  stdWrap.wrap3 = <nav id="breadcrumbs" class="{$additionalClassesHeader}">|</nav>
+  stdWrap.if.isTrue = {$enableFullpage}
+  10 < lib.breadcrumbs
+  }
+  
+  20 = COA
+  20 {
+  stdWrap.wrap = <nav id="breadcrumbs" >|</nav>
+  stdWrap.if.isFalse = {$enableFullpage}
+  10 < lib.breadcrumbs
+  }
+}
+
+
+#############################
+# teaser
+#############################
+
+lib.showTeaser = COA
+lib.showTeaser {
+   
+   # nur anzeigen, wenn das entsprechende Layout eingestellt ist
+   stdWrap.if {
+      value = 1,4,5,7
+      isInList.data = levelfield:-1,backend_layout_next_level,slide
+      isInList.override.data = TSFE:page|backend_layout
+   }
+  10 < lib.teaserContent
+}
+
+
+##################################
+# main
+##################################
+lib.mainContentWrapper = COA
+lib.mainContentWrapper {
+ 
+ 10 = COA
+ 10 {
+   
+    stdWrap.if.isTrue.cObject < lib.showTeaser
+   
+    10 < lib.showTeaser
+    10.stdWrap.wrap = <div class="ym-wbox">|</div>
+    10.stdWrap.wrap2 = <div class="ym-wrapper">|</div>
+    10.stdWrap.wrap2 = <div id="teaser" class="{$additionalClassesTeaser}>|</div>
+    10.stdWrap.if.isTrue = {$enableFullpage}
+  }
+  
+ 20 = COA
+ 20 {
+    stdWrap.if.isTrue.cObject < lib.showTeaser
+   10 < lib.showTeaser
+   
+   10.wrap = <div id="teaser" class="{$additionalClassesTeaser}">|</div>
+   10.stdWrap.if.isFalse = {$enableFullpage}
+  }
+  
+ 30 = COA
+ 30 {
+ stdWrap.wrap = <div class="ym-wbox">|</div>
+ stdWrap.wrap2 = <div class="ym-wrapper">|</div>
+ stdWrap.wrap3 =<div id="main" class="{$additionalClassesMain}">|</div>
+ stdWrap.if.isTrue = {$enableFullpage}
+ 10 < lib.columns
+ }
+ 
+ 40 = COA
+ 40 {
+ stdWrap.wrap =<div id="main" class="{$additionalClassesMain}">|</div>
+ stdWrap.if.isFalse = {$enableFullpage}
+ 10 < lib.columns
+ }
+}
+###########################
+# Footer
+###########################
+
+lib.footerWrapper = COA
+lib.footerWrapper {
+10 = COA
+10 {
+   stdWrap.wrap = <div class="ym-wbox"><div class="ym-wrapper">|</div></div>
+   stdWrap.wrap2 = <footer class="{$additionalClassesMain}">|</footer>
+   stdWrap.if.isTrue = {$enableFullpage}
+   10 < lib.footerContent
+   }
+20 = COA
+20 {
+   stdWrap.wrap = <footer class="{$additionalClassesMain}">|</footer>
+   stdWrap.if.isFalse = {$enableFullpage}
+   10 < lib.footerContent
+   }
+
+}
+

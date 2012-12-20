@@ -1,0 +1,509 @@
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * YAML form theme: "gray-theme"
+ *
+ * @copyright			 Copyright 2005-2012, Dirk Jesse
+ * @license				 CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                       YAML-CDL (http://www.yaml.de/license.html)
+ * @link                 http://www.yaml.de
+ * @package				 yaml
+ * @version              v4.0
+ * @revision             $Revision: 656 $
+ * @lastmodified         $Date: 2012-01-11 21:27:54 +0100 (Mi, 11 Jan 2012) $
+ */
+$slider-width: 260px;
+@import "partials/base";
+@media screen and (min-width: 0px){
+
+	/**
+	* @section general width settings for formular elements in modern browsers
+	*          switching to CSS3 box modell "border-box" for perfect flexible forms
+	*
+	* Styling for: <labels>, <input>, <textarea> and <select>
+	*
+	*/
+	
+
+input.tx-srfeuserregister-pi1-delete-icon {
+  width: 11px !important;
+  height: 11px !important;
+}
+	.ym-form input,
+	.ym-form input,
+	.ym-form textarea,
+	.ym-form select {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+		width:60%;
+	}
+
+	.ym-columnar label {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.ym-columnar .ym-fbox-select select,
+	.ym-columnar .ym-fbox-text input,
+	.ym-columnar .ym-fbox-text textarea { width:70%; }
+
+	.ym-full .ym-fbox-select select,
+	.ym-full .ym-fbox-text input,
+	.ym-full .ym-fbox-text textarea { width:100%; }
+	
+	.ym-columnar .ym-fbox-check {
+	   input {
+    margin-left: 0 !important;
+      
+    }
+    
+   label {
+    width: 30% !important;
+    float: left;
+      
+    }
+    label.tx-srfeuserregister-pi1-terms {
+      float: right;
+    width: 65% !important;
+    }
+  }
+}
+
+@media screen, projection {
+
+	/**
+	* @section general form styling
+	*
+	* Styling for: <form>, <fieldset>, <legend>, <label> and rows (class="ym-fbox-[xxx]")
+	*
+	*/
+	.ym-form {
+		background: transparent;
+		margin: 0 0 0 0;
+		padding: 0.5em;
+		
+		&.questionnaire {
+    background:#f8f8f8;
+    border:2px #fff solid;
+    margin: 1.5em 0 0 0;
+    padding: 0;
+    @include box-shadow($shadow-1);  }
+	}
+	
+	
+  .ym-form input[readonly] {
+    border: none;
+    width: 100%;
+    background: transparent;
+  }
+	.ym-form div.ym-fbox-select {
+	   #height_feet, #height_inch {
+	  width: 50px !important;
+	}
+}
+
+
+
+	.ym-form fieldset {
+		position:static;
+		border: 0px solid #999;
+		background:transparent;
+		margin: 0.75em 0 0.75em 0;
+		padding: 0.5em;
+
+	}
+
+	.ym-form legend {
+		background:transparent;
+		color:#444;
+    text-shadow: 0px 0px 0px #fff;
+		font-size:1em;
+		line-height:1.25em;
+		font-weight:bold;
+		padding:0 0.2em 0 0.2em;
+		&:first {
+		  padding-top: 0;
+		}
+	}
+
+	.ym-form label {
+		line-height: 1.5em;
+	}
+
+	.ym-label {
+	}
+
+	.ym-form .ym-form div.ym-fbox-check:focus + label {
+	}
+
+	/* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
+	.ym-form div.ym-fbox-text,
+	.ym-form div.ym-fbox-select,
+	.ym-form div.ym-fbox-check,
+	.ym-form div.ym-fbox-button {
+		padding: 0.3em 1em;
+		margin-bottom: 0.5em;
+	}
+
+	.ym-form div.ym-fbox-button {
+		background: #fff;
+		border-top: 1px #e0e0e0 solid;
+    margin: 0;
+		padding:0 1em 1.5em 1em;
+		text-align: right;
+	}
+
+	.ym-form .ym-gbox {
+		padding: 0 0.5em;
+		margin-right: 0;
+	}
+
+	.ym-form h6 {
+		color: #000;
+		margin: 1em 0 0 1em;
+	}
+
+	/**
+	* @section styling form elements
+	*
+	* Styling for: Input, Textarea, Select ...
+	*
+	*/
+
+	/* styling standard form elements with 'almost' equal flexible width */
+	/* Gestaltung der einzelnen Formularelemente mit annähend gleicher Breite */
+	.ym-form .ym-fbox-text input,
+	.ym-form .ym-fbox-text textarea {
+		line-height: 1em;
+		padding: 0.25em 0.3em;
+		margin-top: -2px;
+	}
+
+	.ym-form .ym-fbox-select select {
+		line-height: 1em;
+		padding: 0.25em 2px 0.25em 1px;
+		margin-top: -2px;
+	}
+
+	/* proportional fonts for all form elements */
+	.ym-form input,
+	.ym-form textarea,
+	.ym-form select,
+	.ym-form optgroup {
+		font-family:Arial, Helvetica, sans-serif;
+		-webkit-box-shadow: inset 0 0 4px #eee;
+		-moz-box-shadow: inset 0 0 4px #eee;
+		box-shadow: inset 0 0 4px #eee;
+	}
+
+	.ym-form optgroup {
+		font-style:normal;
+		font-weight:bold;
+	}
+
+	.ym-form .ym-fbox-text input,
+	.ym-form .ym-fbox-text textarea,
+	.ym-form .ym-fbox-select select {
+		border:1px solid #ddd;
+	}
+
+	/* General form styling	| Allgemeine Formatierung des Formulars */
+	.ym-form .ym-message {
+		color:#666;
+		margin-bottom:0.5em;
+	}
+
+	/* Highlight mandatory fields | Pflichtfeldkennzeichnung hervorheben */
+	.ym-form sup {
+		
+		font-weight:bold;
+	}
+
+	/* form validation highlight colors */
+	.ym-form input:valid,
+	.ym-form textarea:valid{ background: #fff;}
+	.ym-form input:invalid,
+	.ym-form textarea:invalid {  background: #fdd; }
+  
+  .ym-form input.ym-valid{
+    border: 1px #665566 solid;
+  }
+	/**
+	* @section error messages
+	*
+	*/
+
+	.ym-form .ym-error label {
+		color:#800 !important;
+		font-weight:normal;
+	}
+	
+  label.ym-error, label.ym-message {
+    // margin-left: 30%;
+    // width: 65% !important;
+    // margin-left: 30%;
+    // width: 65% !important;
+  }
+	.ym-form .ym-error input,
+	.ym-form .ym-error select,
+	.ym-form .ym-error textarea {
+		border: 1px #800 solid;
+		&.ym-error {
+  }
+	}
+
+	.ym-form .ym-error input:hover,
+	.ym-form .ym-error input:focus,
+	.ym-form .ym-error select:hover,
+	.ym-form .ym-error select:focus,
+	.ym-form .ym-error textarea:hover,
+	.ym-form .ym-error textarea:focus {
+		border: 1px #800 solid !important;
+	}
+
+	.ym-form .ym-error .ym-message {
+		color:#800;
+	}
+
+	/* :hover and :focus status on form fields | Effekt zur Hervorhebung von Formularfeldern bei :hover oder :focus */
+	.ym-form div.ym-fbox-text input:focus,
+	.ym-form div select:focus,
+	.ym-form div textarea:focus,
+	.ym-form div.ym-fbox-text input:hover,
+	.ym-form div select:hover,
+	.ym-form div textarea:hover,
+	.ym-form div.ym-fbox-text input:active,
+	.ym-form div select:active,
+	.ym-form div textarea:active {
+		border:1px #888 solid;
+		background:#fff;
+	}
+
+	/**
+	* @section Buttons
+	*
+	* inspired from: Catalin Rosu (http://www.red-team-design.com/just-another-awesome-css3-buttons)
+	*/
+
+
+
+	.ym-button,
+	.ym-form button,
+	.ym-form input[type="button"],
+	.ym-form input[type="reset"],
+	.ym-form input[type="submit"] {
+    @include sassy-button-structure( .15em, 1em, 0 0.5em);
+    margin: 1.5em 0.75em 0 0;
+    line-height: 1.5em;
+    @include border-radius( .15em 0 0 .15em );
+   border: 1px solid #333;
+	}
+
+
+	.ym-form button:before,
+	.ym-button:before,
+	.ym-form .ym-button input:before {
+		background: #ccc;
+		background: rgba(0,0,0,0);
+		float: left;
+		width: 1.5em;
+    line-height: 1.5em;
+		text-align: center;
+		font-size: 1em !important;
+		margin: 0 1em 0 -0.5em;
+		padding: 0em 0.5em;
+		@include box-shadow(1px 0 0 rgba(0,0,0,.2), 2px 0 0 rgba(255,255,255,.2));
+    @include border-radius( .15em 0 0 .15em );
+		pointer-events: none;
+	}
+  .sb-loud {
+    @include sassy-button-gradient("simple", #f58c00);
+    border: 1px solid darken(#f58c00, 6.67%);
+  }  .sb-cancel {
+      @include sassy-button-gradient("simple", #e86a43);
+      border: 1px solid darken(#e86a43, 6.67%);
+    }
+  .sb-ok {
+      @include sassy-button-gradient("simple", #4d8ccd);
+      border: 1px solid darken(#4d8ccd, 6.67%);
+    }
+  .sb-login,.sb-logout {
+      @include sassy-button-gradient("simple", #636363);
+    }
+  
+  .sb-register {
+      @include sassy-button-gradient("simple", #8cbe5f);
+      border: 1px solid darken(#8cbe5f, 6.67%);
+    }
+    
+	.ym-add:before { content: "\271A"; }
+	.ym-delete:before { content: "\2718"; }
+	.ym-edit:before { content: "\270E"; }
+	.ym-email:before { content: "\2709"; }
+	.ym-like:before { content: "\2764"; }
+	.ym-next:before { content: "\279C"; }
+	.ym-play:before { content: "\25B6"; }
+	.ym-save:before { content: "\2714"; }
+	.ym-spark:before { content: "\2737"; }
+	.ym-star:before { content: "\2605"; }
+ 
+
+  /* If line-height can't be modified, then fix Firefox spacing with padding */
+  .ym-form input[type=button]::-moz-focus-inner,
+  .ym-form input[type=reset]::-moz-focus-inner,
+  .ym-form input[type=submit]::-moz-focus-inner {
+    padding: .4em;
+  }
+
+  /* The disabled styles */
+  .ym-form button[disabled],
+  .ym-form button[disabled]:hover,
+  .ym-form input[type=button][disabled],
+  .ym-form input[type=button][disabled]:hover,
+  .ym-form input[type=reset][disabled],
+  .ym-form input[type=reset][disabled]:hover,
+  .ym-form input[type=submit][disabled],
+  .ym-form input[type=submit][disabled]:hover,
+  .ym-button.ym-disabled,
+  .ym-button.ym-disabled:hover {
+    background: #eee;
+    color: #aaa !important;
+    border-color: #aaa;
+    cursor: default;
+    text-shadow: none;
+    position: static;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* ie6 support styles - redefined buttons, because of missing support for attribute selectors */
+  * html .ym-button,
+  * html .ym-form button {
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    color: #333 !important;
+    cursor: pointer;
+    font: normal 1em/2em Helvetica, Helvetica, sans-serif;
+    margin: 1.5em 0.75em 0 0;
+    padding: 0 1.5em;
+    overflow: visible; /* removes extra side spacing in IE */
+    text-decoration: none !important;
+  }
+
+  * html .ym-form button:focus,
+  * html .ym-button:focus {
+    outline: 0;
+    background: #fafafa;
+  }
+
+  * html .ym-form button:hover,
+  * html .ym-button:hover {
+    background-color: #ddd;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+  }
+
+  * html .ym-form button:active,
+  * html .ym-button:active {
+    background-color: #bbb;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#bbbbbb');
+    position: relative;
+    top: 1px;
+  }
+
+  * html .ym-button.ym-disabled,
+  * html .ym-button.ym-disabled:hover {
+    background: #eee;
+    color: #aaa !important;
+    border-color: #aaa;
+    cursor: default;
+    text-shadow: none;
+    position: static;
+  }
+  
+/*
+ * jQuery Upload Plugin
+ */
+  .fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer !important;
+}
+.fileupload-buttonbar .btn,
+.fileupload-buttonbar .toggle {
+  margin-bottom: 5px;
+}
+.files .progress {
+  width: 200px;
+}
+.progress-animated .bar {
+  background: url(../img/progressbar.gif) !important;
+  filter: none;
+}
+.fileupload-loading {
+  position: absolute;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  background: url(../img/loading.gif) center no-repeat;
+  display: none;
+}
+.fileupload-processing .fileupload-loading {
+  display: block;
+}
+.bar {
+    height: 18px;
+    background: green;
+}
+/* Fix for IE 6: */
+* html .fileinput-button {
+  line-height: 24px;
+  margin: 1px -3px 0 0;
+}
+
+/* Fix for IE 7: */
+* + html .fileinput-button {
+  padding: 2px 15px;
+  margin: 1px 0 0 0;
+}
+
+@media (max-width: 767px) {
+  .files .btn span {
+    display: none;
+  }
+  .files .preview * {
+    width: 40px;
+  }
+  .files .name * {
+    width: 80px;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+  .files .progress {
+    width: 20px;
+  }
+  .files .delete {
+    width: 60px;
+  }
+}
+}

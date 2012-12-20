@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <title>Sitepackage Theme</title>
+    <!-- Mobile viewport optimisation -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <!-- (en) Add your meta data here -->
+    <!-- (de) Fuegen Sie hier ihre Meta-Daten ein -->
+    <link rel="stylesheet" type="text/css" href="js/jquery/fancybox/jquery.fancybox-1.3.4.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="typo3conf/ext/user_orthoquest/res/formhandler/shared/skins/css/cupertino/jquery-ui-1.9.0.custom.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/screen.css" media="all" />
+    <!--[if lte IE 7]>
+    <link href="css/core/iehacks.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+  <body class='ym-231 normal-right'>
+    <!-- ###DOCUMENT_BODY### begin -->
+    <ul class='ym-skiplinks'>
+      <li>
+        <a class='ym-skip' href='#nav'>Skip to navigation (Press Enter)</a>
+      </li>
+      <li>
+        <a class='ym-skip' href='#main'>Skip to main content (Press Enter)</a>
+      </li>
+    </ul>
+      <div class='ym-wrapper'>
+        <div class='ym-wbox'>
+    <header>
+        <nav id='topnavi'>###TOPNAVI###</nav>
+    </header>
+
+    <nav id='mainmenu'>
+          <div class='ym-hlist'>
+            ###MAINNAVI###
+          </div>
+    </nav>
+    <div id='main'>
+      <div class='ym-column'>
+            <aside class='ym-col1'>
+              <div class='ym-cbox-right'>
+
+                <!-- content -->
+
+                
+              ###CONTENT_RIGHT###
+              </div>
+            </aside>
+            <div class='ym-col3 ym-clearfix'>
+              <div class='ym-cbox-left'>
+                ###CONTENT_NORMAL###
+              </div>
+              <div class="ym-ie-clearing">
+                &nbsp;
+              </div>
+            </div>
+      </div>
+    </div>
+    <footer>
+    ###FOOTER###
+    </footer>
+        </div>
+      </div>
+    <!-- full skip link functionality in webkit browsers -->
+    <!-- ###DOCUMENT_BODY### end -->
+    <script src='../yaml/core/js/yaml-focusfix.js'></script>
+  </body>
+</html>

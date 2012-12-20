@@ -1,0 +1,94 @@
+#############################
+# col1, col2, col3
+#############################
+
+lib.columns = COA
+lib.columns {
+stdWrap.wrap = <div class="ym-column linearize-level-1">|</div>
+
+# col1 (Normal) wird immer ausgegeben
+20 = COA
+20 {
+  
+  10 = COA
+  10 {
+    10 < lib.contentNormal
+    stdWrap.if {
+          value = 5,6,7,8,9
+          isInList.data = levelfield:-1,backend_layout_next_level,slide
+          isInList.override.data = TSFE:page|backend_layout
+    }
+    stdWrap.wrap = <article class="ym-col1"> | </article>
+   }   
+   
+  20 = COA
+  20 {
+    10 < lib.contentNormal
+    stdWrap.if {
+          value = 3,4
+          isInList.data = levelfield:-1,backend_layout_next_level,slide
+          isInList.override.data = TSFE:page|backend_layout
+      }
+    stdWrap.wrap = <div class="ym-col1"> | </div>
+  }
+
+  30 = COA
+  30 {
+    10 < lib.contentNormal
+    stdWrap.if {
+          value = 1,2
+          isInList.data = levelfield:-1,backend_layout_next_level,slide
+          isInList.override.data = TSFE:page|backend_layout
+    }
+    stdWrap.wrap = <div class="ym-col1"><div class="ym-cbox-left"> | </div></div>
+   }
+
+}
+# col2
+30 = COA
+30 {
+  
+   10 < lib.contentRight
+   
+   stdWrap.wrap = <aside class="ym-col2"><div class="ym-cbox-right"> | </div></aside>
+   
+   # nur anzeigen, wenn das entsprechende Layout eingestellt ist (nur bei 3 Spalten)
+   stdWrap.if {
+      value = 6,7,9
+      isInList.data = levelfield:-1,backend_layout_next_level,slide
+      isInList.override.data = TSFE:page|backend_layout
+   }
+}
+
+# col3
+40 = COA
+40 {
+  
+  
+  20 = COA
+  20 {
+    10 < lib.subMenu
+    20 < lib.contentLeft
+  
+    stdWrap.if {
+          value = 3,4,6,7,9
+          isInList.data = levelfield:-1,backend_layout_next_level,slide
+          isInList.override.data = TSFE:page|backend_layout
+      }
+    stdWrap.wrap = <aside class="ym-col3"><div class="ym-cbox-left"> | </div></aside>
+   }
+
+  30 = COA
+  30 {
+    10 < lib.subMenu
+    20 < lib.contentRight
+    stdWrap.if {
+          value = 1,2
+          isInList.data = levelfield:-1,backend_layout_next_level,slide
+          isInList.override.data = TSFE:page|backend_layout
+    }
+  stdWrap.wrap = <aside class="ym-col3"><div class="ym-cbox-right"> | </div></aside>
+ }  
+  }
+
+}

@@ -1,0 +1,71 @@
+ lib.stdheader = COA
+216: lib.stdheader {
+217: 
+218:  # Create align style-attribute for <Hx> tags
+219:  2 = LOAD_REGISTER
+220:  2.headerStyle.field = header_position
+221:  2.headerStyle.required = 1
+222:  2.headerStyle.noTrimWrap = | style="text-align:|;"|
+223: 
+224:  # Create class="csc-firstHeader" attribute for <Hx> tags
+225:  3 = LOAD_REGISTER
+226:  3.headerClass = csc-firstHeader
+227:  3.headerClass.if.value=1
+228:  3.headerClass.if.equals.data = cObj:parentRecordNumber
+229:  3.headerClass.noTrimWrap = | class="|"|
+230: 
+231:  # Date format:
+232:  5 = TEXT
+233:  5.field = date
+234:  5.if.isTrue.field = date
+235:  5.strftime = %x
+236:  5.wrap = <p class="csc-header-date">|</p>
+237:  5.prefixComment = 2 | Header date:
+238: 
+239:  # This CASE cObject renders the header content:
+240:  # currentValue is set to the header data, possibly wrapped in link-tags.
+241:  10 = CASE
+242:  10.setCurrent {
+243:    field = header
+244:    htmlSpecialChars = 1
+245:    typolink.parameter.field = header_link
+246:  }
+247:  10.key.field = header_layout
+248:  10.key.ifEmpty = {$content.defaultHeaderType}
+249:  10.key.ifEmpty.override.data = register: defaultHeaderType
+250: 
+251:  10.1 = TEXT
+252:  10.1.current = 1
+253:  10.1.dataWrap = <h1{register:headerStyle}{register:headerClass}>|</h1>
+254: 
+255:  10.2 < .10.1
+256:  10.2.dataWrap = <h2{register:headerStyle}{register:headerClass}>|</h2>
+257: 
+258:  10.3 < .10.1
+259:  10.3.dataWrap = <h3{register:headerStyle}{register:headerClass}>|</h3>
+260: 
+261:  10.4 < .10.1
+262:  10.4.dataWrap = <h4{register:headerStyle}{register:headerClass}>|</h4>
+263: 
+264:  10.5 < .10.1
+265:  10.5.dataWrap = <h5{register:headerStyle}{register:headerClass}>|</h5>
+266: 
+267:  # Pops the used registers off the stack:
+268:  98 = RESTORE_REGISTER
+269:  99 = RESTORE_REGISTER
+270: 
+271:  # Post-processing:
+272:  stdWrap.fieldRequired = header
+273:  stdWrap.if {
+274:    equals.field = header_layout
+275:    value = 100
+276:    negate = 1
+277:  }
+278: 
+279:  stdWrap.editIcons = tt_content : header, [header_layout | header_position], [header_link|date]
+280:  stdWrap.editIcons.beforeLastTag = 1
+281:  stdWrap.editIcons.iconTitle.data = LLL:EXT:css_styled_content/pi1/locallang.xml:eIcon.header
+282: 
+283:  stdWrap.dataWrap = <div class="csc-header csc-header-n{cObj:parentRecordNumber}">|</div>
+284:  stdWrap.prefixComment = 2 | Header:
+285: }

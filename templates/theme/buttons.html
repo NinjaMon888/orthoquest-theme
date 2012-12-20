@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>buttons</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Alex Hamann" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+		<link rel="stylesheet" type="text/css" href="css/screen.css" media="all" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+
+	<body class="ym-231 normal">
+		<div class="ym-wrapper">
+			<div class="ym-wbox">
+				<header>
+					<h1>buttons</h1>
+				</header>
+				<nav id="mainmenu">
+					<div class="ym-hlist">
+						<ul>
+							<li>
+								<a href="#">Home</a>
+							</li>
+							<li>
+								<a href="#">Contact</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<div id="main">
+					<div class="ym-col3">
+						<form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+        <!-- Redirect browsers with JavaScript disabled to the origin page -->
+        <noscript><input type="hidden" name="redirect" value="http://blueimp.github.com/jQuery-File-Upload/"></noscript>
+        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+        <div class="row fileupload-buttonbar">
+            <div class="span7">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <i class="icon-plus icon-white"></i>
+                    <span>Add files...</span>
+                    <input type="file" name="files[]" multiple>
+                </span>
+                <button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Start upload</span>
+                </button>
+                <button type="reset" class="btn btn-warning cancel">
+                    <i class="icon-ban-circle icon-white"></i>
+                    <span>Cancel upload</span>
+                </button>
+                <button type="button" class="btn btn-danger delete">
+                    <i class="icon-trash icon-white"></i>
+                    <span>Delete</span>
+                </button>
+                <input type="checkbox" class="toggle">
+            </div>
+            <!-- The global progress information -->
+            <div class="span5 fileupload-progress fade">
+                <!-- The global progress bar -->
+                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                    <div class="bar" style="width:0%;"></div>
+                </div>
+                <!-- The extended global progress information -->
+                <div class="progress-extended">&nbsp;</div>
+            </div>
+        </div>
+        <!-- The loading indicator is shown during file processing -->
+        <div class="fileupload-loading"></div>
+        <br>
+        <!-- The table listing the files available for upload/download -->
+        <table role="presentation" class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
+    </form>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/jquery/ui/jquery.ui.widget.js"></script>
+<script src="js/jquery/jquery.iframe-transport.js"></script>
+<script src="js/jquery/jquery.fileupload.js"></script>
+<script>
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        }
+    });
+});
+</script>
+						<form class="ym-form ym-columnar">
+							<div class="ym-fbox-button">
+								<input type="submit" value="Send" class="ym-button" />
+								<button class="ss-write" href="#">
+									Edit
+								</button>
+								<a class="ss-delete sb-cancel" href="#">Abbrechen</a>
+								<a class="sb-ok" href="#">OK</a>
+								<a class="sb-loud ss-write" href="#">Edit</a>
+							</div>
+						</form>
+
+					</div>
+				</div>
+				<footer>
+					<p>
+						&copy; Copyright  by Alex Hamann
+					</p>
+				</footer>
+			</div>
+		</div>
+	</body>
+</html>

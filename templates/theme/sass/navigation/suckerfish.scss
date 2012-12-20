@@ -1,0 +1,184 @@
+/*  original code @ http://www.htmldog.com/articles/suckerfish/dropdowns/example/  */
+
+@import "partials/base";
+
+ul#sfnav, ul.metanavi {
+  width: auto;
+  list-style: none;
+  line-height: 1em;
+  padding: 0;
+  margin: 1.5em 0 0 1.5em;
+  // z-index: 2000;
+  position: relative;
+    li {
+      width: 8em;
+      line-height: 1em;
+      display: block;
+      left: -3000px;
+      float: left;
+      padding: 0;
+      margin:0;
+
+      a, strong {     
+        text-align: center;
+        color:$ym-mainmenu-color;
+        text-transform: none;
+        text-decoration: none;
+        display: block;
+        border: 0px solid $ym-mainmenu-border-color;
+        padding: 0.5em;
+        font-weight: normal;
+        font-family: $ym-mainmenu-font-family;
+        font-weight: normal;
+        background: transparent;
+        
+          &:hover {
+            background: $ym-mainmenu-item-bg-color-hover;
+         }
+        
+         &.current {
+           background: $ym-mainmenu-item-bg-color-current;
+           color: $ym-mainmenu-item-color-current;
+           &:hover {             
+            color: $ym-mainmenu-item-color-current;
+           }
+         }
+       
+         &.active {
+           background: $ym-mainmenu-item-bg-color-active;
+           color: $ym-mainmenu-item-color-active;
+           font-weight: bold;
+           &:hover {             
+            color: $ym-mainmenu-item-color-active;
+           }
+         }
+            
+        &.first {
+         }
+       
+        &.last {
+          
+        }     
+      }   
+      strong {
+        font-weight: bold;
+      }
+      
+      ul {
+        position: absolute;
+        left: -999em;
+        width: 13em;
+        margin: 0 0 0 0em;
+        li {
+          height: auto;
+          width: 100%;
+          ul {
+            margin: -2.125em 0 0 14.25em;
+          }
+          
+          a, strong {     
+          display: block;
+          text-align: left !important;
+          font-weight: normal;
+          background-color: $sf-bg-color;
+          border: 2px solid $sf-border-color;
+          border-bottom: none;
+          border-bottom-width: 0;
+          width: 100%;
+            &:hover {
+              background-color: $sf-bg-color-hover;
+            }
+            
+            &.current {
+              background-color: $sf-bg-color-current;
+              color: $sf-color-current;
+              &:hover {                
+                color: $sf-color-current;
+              }
+            }
+            &.active {
+              background: $sf-bg-color-active;
+              color: $sf-color-active;
+            }
+            
+            &.first {
+              
+            }
+            
+            &.last, &.single {
+              border-bottom: 2px solid $sf-border-color;
+            }
+            
+            
+          }
+          
+          strong {
+            text-align: left;
+            font-weight: bold;
+          }
+          ul {
+            width: 14em;
+          }
+        }
+      }
+    }
+}
+
+
+ul.metanavi {
+   float: right;
+   margin: 0 1em 0 0;
+}
+
+
+#sfnav li:hover ul ul, #sfnav li:hover ul ul ul, #sfnav .navfxenabled li:hover ul, #sfnav .navfxenabled li:hover ul ul, #sfnav .navfxenabled li:hover ul ul ul, #sfnav .navfxenabled li.over ul ul, #sfnav .navfxenabled li.over ul ul ul {
+    left: -999em;
+}
+
+#sfnav li:hover ul, #sfnav .navfxenabled li.over ul {
+    left: auto;
+}
+
+#sfnav li li:hover ul, #sfnav li li li:hover ul, #sfnav .navfxenabled li li.over ul, #sfnav .navfxenabled li li li.over ul {
+    left: -2px;
+}
+
+#sfnav li li.over ul.leftover, #sfnav .navfxenabled li li li.over ul.leftover, #sfnav .navfxenabled li li li li.over ul.leftover {
+    left: -28.44em;
+}
+
+@media screen and ( max-width: 740px )  {
+  ul#sfnav,ul.metanavi {
+     margin: 0;
+   li {
+    width: 6em;
+    
+    a {
+     padding: 0.5em;
+     margin: 0;
+     text-align: center;
+     }
+}
+}
+}
+@media screen and ( max-width: 480px)  {
+  ul.metanavi {
+    float: left;
+  }
+  
+ul#sfnav,ul.metanavi {
+     margin: 0;
+   li a {
+     padding: 0.5em;
+     margin: 0;
+     text-align: center;
+}
+}
+  
+ ul#sfnav li ul li a {
+    display: none;
+      ul {
+        display: none;
+      }
+    }
+  }

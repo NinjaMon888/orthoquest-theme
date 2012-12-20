@@ -1,0 +1,150 @@
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * (en) Vertical list navigation "vlist"
+ * (de) Vertikale Navigationsliste "vlist"
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         v4.0
+ * @revision        $Revision: 677 $
+ * @lastmodified    $Date: 2012-01-18 23:36:59 +0100 (Mi, 18 Jan 2012) $
+ */
+@media all {
+  /* line 20, ../../sass/navigation/vlist.scss */
+  .ym-vlist {
+    position: relative;
+    width: 100%;
+    list-style-type: none;
+    padding-bottom: 2.85714em;
+    float: left;
+  }
+  /* line 27, ../../sass/navigation/vlist.scss */
+  .ym-vlist h6.spacer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background: #f6f6f6;
+    border-bottom: 1px solid #444;
+    text-shadow: #f4f4f4, 1, 1, 1;
+    padding-left: 5%;
+    margin: 0;
+    font-size: 1.2em;
+    line-height: 1.19048em;
+    margin-top: 0em;
+    padding-top: 0.71429em;
+    padding-bottom: 0.71429em;
+    margin-bottom: 0em;
+  }
+  /* line 40, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 46, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 50, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li a, .ym-vlist ul li span {
+    width: 95%;
+    padding-left: 5%;
+    background: white;
+    color: #333333;
+    display: block;
+    font-size: 1em;
+    line-height: 1.42857em;
+    margin-top: 0em;
+    padding-top: 0.47143em;
+    padding-bottom: 0.47143em;
+    margin-bottom: 0em;
+    border-bottom-style: solid;
+    border-bottom-width: 0.07143em;
+    padding-bottom: -0.07143em;
+    text-decoration: none;
+    border-color: #ccc;
+    text-shadow: 1px 1px 0 #cccccc;
+  }
+  /* line 18, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:visited, .ym-vlist ul li span:visited {
+    color: #333333;
+  }
+  /* line 21, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:focus, .ym-vlist ul li span:focus {
+    color: #1a70fe;
+  }
+  /* line 24, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:hover, .ym-vlist ul li span:hover {
+    color: #1a70fe;
+  }
+  /* line 27, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  .ym-vlist ul li a:active, .ym-vlist ul li span:active {
+    color: #1a70fe;
+  }
+  /* line 70, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li a.first, .ym-vlist ul li span.first {
+    border-top: none;
+    border-color: #ccc;
+    border-bottom-style: solid;
+    border-bottom-width: 0.07143em;
+    padding-bottom: -0.07143em;
+  }
+  /* line 75, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li a.current, .ym-vlist ul li a.active, .ym-vlist ul li span.current, .ym-vlist ul li span.active {
+    font-weight: bold;
+    margin-top: 0em;
+    padding-top: 0.42857em;
+    padding-bottom: 0.42857em;
+    margin-bottom: 0em;
+  }
+  /* line 78, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li a.current.hasSub, .ym-vlist ul li a.active.hasSub, .ym-vlist ul li span.current.hasSub, .ym-vlist ul li span.active.hasSub {
+    border-bottom: none;
+  }
+  /* line 83, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li a.last, .ym-vlist ul li span.last {
+    border-top-color: transparent;
+  }
+  /* line 89, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li ul {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 94, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li li ul {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 98, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li li a, .ym-vlist ul li li span {
+    width: 90%;
+    padding-left: 10%;
+    border-top-color: transparent;
+  }
+  /* line 101, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li li a.first, .ym-vlist ul li li span.first {
+    border-top: none;
+  }
+  /* line 103, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li li a.first.current, .ym-vlist ul li li span.first.current {
+    border-color: #ccc;
+  }
+  /* line 111, ../../sass/navigation/vlist.scss */
+  .ym-vlist ul li li li a, .ym-vlist ul li li li strong, .ym-vlist ul li li li span {
+    width: 80%;
+    padding-left: 20%;
+  }
+}

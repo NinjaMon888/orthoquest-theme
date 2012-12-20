@@ -1,0 +1,59 @@
+
+##id storagepage of gridlayout
+TCEFORM.pages.backend_layout.PAGE_TSCONFIG_ID=66
+TCEFORM.pages.backend_layout_next_level.PAGE_TSCONFIG_ID=66
+
+## Auswahl "Kein Backend-Layout" ausblenden
+TCEFORM.pages.backend_layout_next_level.removeItems= -1
+TCEFORM.pages.backend_layout.removeItems= -1
+
+## Leere Auswahl umbenennen
+TCEFORM.pages.backend_layout.altLabels.0 = Vordefiniertes Layout
+
+
+# Spalten im Arbeitsbereich "Seite"
+mod.SHARED.colPos_list = 0,1,2,3,4,5
+
+# Spalten Links, Rand im Auswahlmenu "Spalte" ausblenden
+#TCEFORM.tt_content.colPos.removeItems = 1
+
+# Spalte Rand umbenennen
+TCEFORM.tt_content.colPos.altLabels.3 = Teaser
+TCEFORM.tt_content.colPos.altLabels.5 = Footer
+
+# Eingabefelder im Backend anpassen
+TCEFORM.tt_content {
+  text_properties.disabled=1
+  text_align.disabaled=1
+  text_color.disabled=1
+  text_face.disabled=1
+  text_size.disabled=1
+  image_frames.disabled = 1
+  CType.removeItems = rte,splash
+}
+
+# Ausblenden der nicht benötigten Überschriften-Formate
+#TCEFORM.tt_content.header_layout.removeItems = 5,6
+
+# Umbenennen der Überschriften-Formate im Auswahlmenu "Typ"
+TCEFORM.tt_content.header_layout.altLabels.1 = Überschrift 1
+TCEFORM.tt_content.header_layout.altLabels.2 = Überschrift 2
+TCEFORM.tt_content.header_layout.altLabels.3 = Überschrift 3
+TCEFORM.tt_content.header_layout.altLabels.4 = Überschrift 4
+TCEFORM.tt_content.header_layout.altLabels.5 = Überschrift 5
+TCEFORM.tt_content.header_layout.altLabels.6 = Überschrift 6
+TCEFORM.tt_content.header_layout.altLabels.100 = Versteckte Überschrift
+
+
+# Auswahlmenu "Rahmen"
+TCEFORM.tt_content.section_frame {
+ removeItems = 1,5,6,10,11,12,20,21
+ altLabels.0 = Bitte wählen Sie Ihr Layout
+ addItems.31 = Linie nach
+ addItems.32 = Linie vor
+ addItems.33 = Box Highlight
+ addItems.34 = Box Dimmed
+ addItems.35 = Box Note
+ addItems.36 = Box Info
+ addItems.37 = Box Warning
+}

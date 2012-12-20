@@ -1,0 +1,153 @@
+## RTE Konfiguration
+RTE.classes >
+RTE.classesAnchor >
+RTE.classesCharacter >
+RTE.classes {
+  highlight {
+   name = Box Highlight
+  }
+
+  dimmed {
+   name = Box Dimmed
+  }
+  note {
+   name = Box Note
+  }  
+  
+  info {
+   name = Box Info
+  }  
+
+  warning {
+   name = Box Warning
+  }
+  
+  align-left {
+   name = linksbündig
+   }
+  
+  align-right {
+  	name = rechtsbündig
+  }
+  
+  align-center {
+  	name = zentriert
+  }
+  
+  align-justify {
+   	name = Blocksatz
+   }
+  rulerBefore{
+   name = Linie vor
+  }
+  
+  rulerAfter{
+   name = Linie nach
+  }
+
+}
+
+RTE.classesAnchor {
+
+  .ym-button {
+    name = einfacher Button
+  }
+  
+  .ym-next {
+    name = Weiter 
+  }
+}
+
+RTE.classesCharacter < RTE.classesAnchor
+
+RTE.default.contentCSS = fileadmin/templates/theme/css/rte/rte-content.css
+RTE.default.useCSS = 0
+
+RTE.default.enableWordClean = 1
+RTE.default.disableEnterParagraphs = 0
+
+# Buttons die gezeigt/versteckt werden
+RTE.default.showButtons = *
+RTE.default.hideButtons (
+fontstyle, fontsize, strikethrough, lefttoright, righttoleft, textindicator, emoticon, spellcheck, outdent, indent, acronym, copy, cut, paste, about, line,image,textcolor, bgcolor,user,findreplace,showlanguagemarks, definitionlist, definitionitem, outdent, indent, formattext, bidioverride, big, citation, code, definition, deletedtext, emphasis, insertedtext, editelement
+)
+
+       
+// Tabellen Editierungs-Optionen ein-/ausschalten
+RTE.default.disableAlignmentFieldsetInTableOperations = 0
+RTE.default.disableSpacingFieldsetInTableOperations = 1
+RTE.default.disableColorFieldsetInTableOperations =1
+RTE.default.disableLayoutFieldsetInTableOperations = 0
+RTE.default.disableBordersFieldsetInTableOperations = 1
+
+# nicht verwendete Überschriften ausblenden
+RTE.default.hidePStyleItems = h1,h2,h5,h6,pre,address
+
+#Für sauberes html rausgenommen
+RTE.default.hideTags = font, font (full)
+
+# siehe oben ausführlich
+RTE.default.showTagFreeClasses = 0
+RTE.default.classesCharacter = ym-button, ym-email, ym-like, ym-weiter, ym-play, ym-add, ym-edit, ym-save, ym-delete, ym-spark, ym-star
+RTE.default.classesAnchor = ym-button, ym-email, ym-like, ym-next, ym-play, ym-add, ym-edit, ym-save, ym-delete, ym-spark, ym-star
+RTE.default.classesParagraph = note, highlight, dimmed, warning, info, rulerBefore, rulerAfter
+RTE.default.classesTable = contenttable-0,contenttable-1,contenttable-2, full, fixed
+RTE.config.tt_content.bodytext.proc.allowedClasses = note,warning,info, highlight, dimmed, rulerBefore, rulerAfter
+RTE.config.tt_news.bodytext.proc.allowedClasses = note,warning,info, highlight, dimmed, rulerBefore, rulerAfter
+
+RTE.default.showStatusBar = 1
+
+RTE.default.proc {
+// TRANSFORMATION METHOD
+overruleMode = ts_css
+
+// LINES CONVERSION
+dontConvBRtoParagraph = 1
+
+// TAGS ALLOWED OUTSIDE P & DIV
+allowTagsOutside = img,hr, blockquote
+
+// TAGS ALLOWED
+allowTags (
+table, tbody, tr, th, td, div, p, br, span, ul, ol, li, re, blockquote, strong, em, b, i, u, sub, sup, strike, a, img, nobr, hr, tt, q, cite, abbr, acronym, code,kbd, var,sample
+)
+// TAGS DENIED
+denyTags = font
+
+// ALLOWED P & DIV ATTRIBUTES
+keepPDIVattribs = align,class,style,id
+
+// CONTENT TO RTE
+HTMLparser_rte {
+// TAGS ALLOWED
+allowTags < RTE.default.proc.allowTags
+removeTags = font
+// DO NOT REMOVE UNMATCHED TAGS
+keepNonMatchedTags = 0
+
+}
+
+// CONTENT TO DATABASE
+entryHTMLparser_db = 1
+entryHTMLparser_db {
+
+// XHTML COMPLIANCE
+xhtml_cleaning = 1
+
+// CLEAN TAGS
+
+noAttrib = b, i, u, strike, sub, sup, strong, em, quote, blockquote, cite, tt, br, center
+tags.hr.allowedAttribs = class
+// REMAP B AND I TAGS
+tags.b.remap = strong
+tags.i.remap = em
+tags.span.fixAttrib.style.unset >
+
+rmTagIfNoAttrib = font
+
+htmlSpecialChars = 0
+}
+
+} 
+RTE.default.disableColorPicker = 1
+RTE.default.disableSelectColor = 1

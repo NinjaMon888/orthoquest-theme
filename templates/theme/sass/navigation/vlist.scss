@@ -1,0 +1,120 @@
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * (en) Vertical list navigation "vlist"
+ * (de) Vertikale Navigationsliste "vlist"
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         v4.0
+ * @revision        $Revision: 677 $
+ * @lastmodified    $Date: 2012-01-18 23:36:59 +0100 (Mi, 18 Jan 2012) $
+ */
+@import "partials/base";
+
+@media all {
+	
+	.ym-vlist {
+	  position: relative;
+		width:100%;
+		list-style-type:none;
+		@include padding-trailer(2);
+		float: left;
+
+		h6.spacer {
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:bold;
+      background: #f6f6f6;
+      border-bottom: 1px solid #444;
+      @include text-shadow(#f4f4f4, 1,1,1);
+      padding-left: 5%;
+      margin:0;
+      @include adjust-font-size-to($to-size: $base-font-size*1.2, $lines: 1);
+      // @include trailing-border($width: 2px, $border-style: solid, $lines: 0);
+      @include rhythm(0,0.5,0.5,0,$base-font-size*1);
+    }
+    //Level 0
+    ul {
+      list-style-type:none;
+      margin:0;
+      padding:0;
+      @include rhythm(0,0,0,0,$base-font-size);
+      
+      li {
+        width:100%;
+        margin:0;
+        padding:0;
+                a, span {
+          width:95%; padding-left:5%;
+          background: $ym-vlist-bg-color;
+          @include link-colors(
+            $normal: $ym-vlist-link-color,
+            $hover: $ym-vlist-link-color-hover,
+            $active: $ym-vlist-link-color-active,
+            $visited: $ym-vlist-link-color-visited,
+            $focus: $ym-vlist-link-color-focus
+          );
+          display:block;
+          @include adjust-font-size-to($to-size: $base-font-size*1, $lines: 1);
+          @include rhythm(0,0.33,0.33,0);
+          // @include leading-border($width: 1px, $border-style: solid, $lines: 0);
+          @include trailing-border($width: 1px, $border-style: solid, $lines: 0);
+          
+          text-decoration:none;
+          border-color:#ccc;
+          @include single-text-shadow(#ccc, 1px, 1px, 0);
+          
+          &.first {
+            border-top: none;
+          border-color:#ccc;
+          @include trailing-border($width: 1px, $border-style: solid, $lines: 0);
+          }
+          &.current , &.active {
+            font-weight: bold;
+            @include rhythm(0,0.3,0.3,0);
+            &.hasSub {
+              border-bottom: none;
+              }
+          }
+          
+          &.last {
+            border-top-color: transparent; 
+          }
+          
+        }
+        
+        ul {
+          @include rhythm(0,0,0,0,$base-font-size);
+        }
+        
+        li {
+          ul {
+          @include rhythm(0,0,0,0,$base-font-size);
+          }
+          
+          a, span {
+            width:90%; padding-left:10%;
+            border-top-color: transparent; 
+            &.first {
+            border-top: none;
+              &.current {
+                border-color:#ccc;
+              }
+            }
+          }
+            
+            
+          li {
+            a, strong,span {
+              width:80%; padding-left:20%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

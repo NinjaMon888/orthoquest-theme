@@ -1,0 +1,422 @@
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * default screen stylesheet - PAGE-layout type layout
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         4.0
+ * @revision        $Revision: 672 $
+ * @lastmodified    $Date: 2012-01-18 10:30:19 +0100 (Mi, 18 Jan 2012) $
+ */
+@media screen {
+  /* line 18, ../../sass/screen/screen-PAGE-layout.scss */
+  html {
+    background-color: #ddd !important;
+  }
+
+  /* force vertical scrollbar */
+  /* line 22, ../../sass/screen/screen-PAGE-layout.scss */
+  body {
+    overflow-y: scroll;
+    background-color: #ddd !important;
+  }
+
+  /* Layout Module Configuration & fallback for media queries */
+  /* line 29, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-wrapper {
+    min-width: 760px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* line 35, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-wbox {
+    padding: 1em;
+    background-color: white;
+  }
+
+  /* Basic Element Styling */
+  /* line 42, ../../sass/screen/screen-PAGE-layout.scss */
+  #topnavi {
+    color: #666;
+    background: transparent;
+  }
+
+  /* line 48, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities {
+    padding: 0;
+    margin: 0 0 0 1em;
+    float: right;
+  }
+  /* line 52, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities li {
+    list-style: none;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    float: left;
+    border-left: 0px solid #ccc;
+  }
+  /* line 60, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities li a, #utilities li span {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    margin: 0em;
+    padding: 1em 0.5em 0.2em 0.5em;
+  }
+  /* line 69, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities li.ls a, #utilities li.ls span {
+    width: 24px;
+    height: 24px;
+    float: left;
+  }
+  /* line 74, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities li.ls a.german, #utilities li.ls span.german {
+    text-indent: -119988px;
+    overflow: hidden;
+    text-align: left;
+    background-image: url('../images/de.gif?1356042552');
+    background-repeat: no-repeat;
+    background-position: 10 10;
+  }
+  /* line 76, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities li.ls a.german.active, #utilities li.ls span.german.active {
+    background-image: url('../images/de-active.gif?1356042552');
+  }
+  /* line 80, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities li.ls a.english, #utilities li.ls span.english {
+    text-indent: -119988px;
+    overflow: hidden;
+    text-align: left;
+    background-image: url('../images/us.gif?1356042554');
+    background-repeat: no-repeat;
+    background-position: 10 10;
+  }
+  /* line 82, ../../sass/screen/screen-PAGE-layout.scss */
+  #utilities li.ls a.english.active, #utilities li.ls span.english.active {
+    background-image: url('../images/us-active.gif?1356042553');
+  }
+
+  /* line 91, ../../sass/screen/screen-PAGE-layout.scss */
+  header {
+    border-bottom: 0px #1a70fe solid;
+    background: white;
+    color: #444444;
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif !important;
+    height: 80px;
+    background: white url('../images/logo_neu.jpg?1356042553') scroll 0 0 no-repeat;
+  }
+  /* line 101, ../../sass/screen/screen-PAGE-layout.scss */
+  header hgroup {
+    width: 50%;
+    float: left;
+    clear: right;
+    margin: 0 1em 1em 1em;
+  }
+  /* line 106, ../../sass/screen/screen-PAGE-layout.scss */
+  header hgroup h1, header hgroup h2 {
+    font-family: Helvetica, Arial, sans-serif !important;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    font-size: 2em;
+    line-height: 1.42857em;
+    line-height: 1.42857em;
+    color: #444444;
+    display: inline;
+  }
+  /* line 113, ../../sass/screen/screen-PAGE-layout.scss */
+  header hgroup h1 a, header hgroup h2 a {
+    color: #444444 !important;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  /* line 119, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 {
+    width: auto;
+    float: right;
+    margin: 0.5em 0 0 0;
+  }
+  /* line 120, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 .ym-form {
+    display: block;
+    font-size: 1em;
+    padding: 0;
+  }
+  /* line 129, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 a.ym-button {
+    font-size: 1em;
+    padding: 0 0.5em;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    -webkit-border-radius: 0.15em;
+    -moz-border-radius: 0.15em;
+    -ms-border-radius: 0.15em;
+    -o-border-radius: 0.15em;
+    border-radius: 0.15em;
+    margin: 1.5em 0.5em 0 0.5em;
+    line-height: 1.5em;
+    border: 1px solid #333;
+  }
+  /* line 135, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 a.forgotPW, header .tx-felogin-pi1 a.register {
+    font-size: 0.75em;
+  }
+  /* line 142, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 div {
+    display: inline;
+  }
+  /* line 145, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 .ym-form {
+    display: block;
+    margin: 0;
+  }
+  /* line 148, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 .ym-form span.status-message {
+    margin-right: 0.5em;
+  }
+  /* line 151, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 .ym-form .ym-fbox-text {
+    float: left;
+    margin: 0.5em 0;
+    padding: 0 0.2em 0 0;
+  }
+  /* line 156, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 .ym-form .ym-fbox-text input {
+    width: 100%;
+    color: #636363;
+    background: #ddd;
+    border: 1px solid #ccc;
+    font-size: 0.75em;
+    -webkit-box-shadow: inset 0 0 4px #ccc;
+    -moz-box-shadow: inset 0 0 4px #ccc;
+    box-shadow: inset 0 0 4px #ccc;
+  }
+  /* line 167, ../../sass/screen/screen-PAGE-layout.scss */
+  header .tx-felogin-pi1 .ym-form input[type="submit"], header .tx-felogin-pi1 .ym-form input[type="button"], header .tx-felogin-pi1 .ym-form button[type="submit"] {
+    margin: 0.5em 0;
+    font-size: 0.75em;
+  }
+
+  /* line 178, ../../sass/screen/screen-PAGE-layout.scss */
+  nav#mainmenu {
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  /* line 187, ../../sass/screen/screen-PAGE-layout.scss */
+  #breadcrumbs {
+    display: none;
+    background-color: white;
+    background-image: none;
+    color: #999999;
+    font-size: 0.5em;
+    line-height: 2.85714em;
+    line-height: 2.85714em;
+  }
+  /* line 194, ../../sass/screen/screen-PAGE-layout.scss */
+  #breadcrumbs a {
+    color: #999999;
+  }
+  /* line 18, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:visited {
+    color: #999999;
+  }
+  /* line 21, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:focus {
+    color: #aaaaaa;
+  }
+  /* line 24, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:hover {
+    color: #aaaaaa;
+  }
+  /* line 27, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  #breadcrumbs a:active {
+    color: #aaaaaa;
+  }
+
+  /* line 206, ../../sass/screen/screen-PAGE-layout.scss */
+  #teaser {
+    background-color: white;
+    color: #333333;
+    margin-top: 0em;
+    padding-top: 1.42857em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    border-bottom: 0px #444444 solid;
+  }
+
+  /* line 212, ../../sass/screen/screen-PAGE-layout.scss */
+  #main {
+    color: #444444;
+    margin-top: 0em;
+    padding-top: 1.42857em;
+    padding-bottom: 1.42857em;
+    margin-bottom: 0em;
+  }
+
+  /* line 218, ../../sass/screen/screen-PAGE-layout.scss */
+  footer {
+    border-top: 2px solid #e6e6e6;
+    background-color: white;
+    color: #828288;
+    margin: 0;
+    margin-top: 0em;
+    padding-top: 1.42857em;
+    padding-bottom: 1.42857em;
+    margin-bottom: 0em;
+  }
+  /* line 228, ../../sass/screen/screen-PAGE-layout.scss */
+  footer p {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.42857em;
+  }
+  /* line 232, ../../sass/screen/screen-PAGE-layout.scss */
+  footer .ym-wbox {
+    background: transparent !important;
+  }
+  /* line 235, ../../sass/screen/screen-PAGE-layout.scss */
+  footer #copyright {
+    font-size: 0.75em;
+    line-height: 1.90476em;
+  }
+  /* line 239, ../../sass/screen/screen-PAGE-layout.scss */
+  footer table caption {
+    font-family: Verdana;
+    font-variant: normal;
+    text-align: left;
+    padding-left: 5px;
+  }
+
+  /* line 248, ../../sass/screen/screen-PAGE-layout.scss */
+  figure img, video, object {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+
+  /* line 254, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-gbox {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* line 259, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-gl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* line 263, ../../sass/screen/screen-PAGE-layout.scss */
+  .download-link-wrap {
+    text-align: left;
+    width: 110px;
+    margin-left: 0;
+    font-size: 0.8em;
+    line-height: 1.78571em;
+  }
+
+  /* line 270, ../../sass/screen/screen-PAGE-layout.scss */
+  .tx_feuserquestionaire-image {
+    display: inline-block;
+    float: left;
+  }
+
+  /* line 274, ../../sass/screen/screen-PAGE-layout.scss */
+  textarea.csv {
+    width: 100% !important;
+  }
+
+  /* line 278, ../../sass/screen/screen-PAGE-layout.scss */
+  div.csc-default {
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.42857em;
+  }
+
+  /* line 288, ../../sass/screen/screen-PAGE-layout.scss */
+  #main .ym-wbox {
+    padding: 0 0 0 0;
+  }
+
+  /* line 294, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right {
+    /* right column */
+    /* left column */
+    /* center column */
+  }
+  /* line 295, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right .ym-col1 {
+    width: 25%;
+    float: right;
+    background-color: white;
+    color: #444444;
+  }
+  /* line 301, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right .ym-col2 {
+    display: none;
+  }
+  /* line 303, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right .ym-col3 {
+    margin-left: 0;
+    margin-right: 25%;
+    background-color: white;
+    color: #444444;
+    overflow: hidden;
+  }
+  /* line 308, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right .ym-cbox-left {
+    padding: 0 2em 2em 0;
+    border-right: 1px dotted #ddd;
+  }
+  /* line 312, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right .ym-cbox-left section {
+    background: #fff !important;
+    padding: 0 12px;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.42857em;
+  }
+  /* line 317, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right .ym-cbox-left section h4 {
+    margin: 0;
+    background: rgba(0, 0, 0, 0);
+    color: #646464;
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 0.71429em;
+    margin-bottom: 0em;
+  }
+  /* line 325, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal-right .ym-cbox-right {
+    padding: 0 0.5em 0 2em;
+  }
+  /* line 331, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal .ym-col1 {
+    display: none;
+  }
+  /* line 334, ../../sass/screen/screen-PAGE-layout.scss */
+  .ym-231.normal .ym-col3 {
+    width: 100%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,340 @@
+/**
+ * "Yet Another Multicolumn Layout" - YAML CSS Framework
+ *
+ * default screen stylesheet - PAGE-layout type layout
+ *
+ * @copyright       Copyright 2005-2012, Dirk Jesse
+ * @license         CC-BY 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-CDL (http://www.yaml.de/license.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         4.0
+ * @revision        $Revision: 672 $
+ * @lastmodified    $Date: 2012-01-18 10:30:19 +0100 (Mi, 18 Jan 2012) $
+ */
+@import "partials/base";
+
+@media screen {
+  html {
+    background-color:#ddd !important;
+  }
+	/* force vertical scrollbar */
+	body {
+	  overflow-y: scroll;
+		// background-color: $ym-body-bg-color;
+    background-color:#ddd !important;
+	}
+
+	/* Layout Module Configuration & fallback for media queries */
+	.ym-wrapper {
+		min-width: $page-min-width;
+		max-width: $page-max-width;
+		margin: 0 auto;
+	}
+
+	.ym-wbox { 
+	  padding: 1em; 
+    background-color: $ym-header-bg-color;
+  }
+
+	/* Basic Element Styling */
+	
+#topnavi {
+        color: #666;
+        background: transparent;
+}
+  
+  
+  #utilities{
+    padding: 0;
+    margin:  0 0 0 1em;
+    float: right;
+    li {
+      list-style: none;
+      width: auto;
+      padding: 0;
+      margin: 0;
+      float: left;
+      border-left: 0px solid #ccc;
+    
+      a, span {
+        display: block;
+        color:#666;
+        text-decoration: none;
+        margin: 0em;
+        padding: 1em 0.5em 0.2em 0.5em;
+      }
+      
+      &.ls {
+        a, span {
+          width: 24px;
+          height: 24px;
+          float: left;
+          
+          &.german {
+            @include replace-text(image-url('de.gif'),10,10);
+            &.active{
+              @include background-image(image-url('de-active.gif'));
+            }
+          }
+          &.english {
+            @include replace-text(image-url('us.gif'),10,10);
+            &.active{
+              @include background-image(image-url('us-active.gif'));
+            }
+          }
+        }
+      }
+    }
+  }
+
+	header {
+    border-bottom: 0px $ym-header-border-color solid;
+    background:$ym-header-bg-color;
+    color: $ym-header-color; 
+    overflow: hidden;
+    font-family: $ym-heading-font !important;   
+    
+      height: 80px;
+      background:$ym-header-bg-color image-url('logo_neu.jpg') scroll 0 0 no-repeat;
+    
+    hgroup {
+  		width: 50%;
+  		float: left;
+  		clear: right;
+      margin: 0 1em 1em 1em;
+  		h1,h2 {
+  		  font-family: $ym-heading-font !important;
+      @include rhythm(0,0,0,0);
+      @include adjust-font-size-to($base-font-size*2);
+      @include adjust-leading-to(1);
+      color: $ym-header-color;
+      display: inline;
+  		  a {
+          color: $ym-header-color !important;
+          @include rhythm(0,0,0,0);
+        }
+      }
+    }  
+    .tx-felogin-pi1 {
+      .ym-form {
+      display: block;
+      font-size: 1em;
+      padding: 0;
+      }
+      width: auto;
+      float: right;
+      margin: 0.5em 0 0 0;
+      a {
+        &.ym-button {
+          @include sassy-button-structure( .15em, 1em, 0 0.5em);
+          margin: 1.5em 0.5em 0 0.5em;
+          line-height: 1.5em;
+          border: 1px solid #333;
+        }
+        &.forgotPW,&.register {
+        font-size: 0.75em;
+        }
+        &.register {
+          
+        }
+      }
+       div {
+         display: inline;
+       }
+      .ym-form {
+        display: block;
+        margin: 0;
+        span.status-message {
+           margin-right: 0.5em;
+        }
+        .ym-fbox-text {
+          float: left;
+          margin: 0.5em 0;
+          padding: 0 0.2em 0 0;
+        
+        input {
+          width: 100%;
+          color: #636363;
+          background: #ddd;
+          border:1px solid #ccc;
+           font-size:0.75em;
+    -webkit-box-shadow: inset 0 0 4px #ccc;
+    -moz-box-shadow: inset 0 0 4px #ccc;
+    box-shadow: inset 0 0 4px #ccc;
+          }
+        }
+        input[type="submit"], input[type="button"], button[type="submit"] {
+          margin: 0.5em 0;
+           font-size:0.75em;
+        }
+      }
+    }
+  }
+	
+
+
+  
+	  nav#mainmenu {
+	    display: block;
+	    width: 100%;
+	    background: $ym-mainmenu-bg-color;
+	    padding: 0;
+	    margin: 0;
+	    overflow: hidden;
+	  }
+	  
+    #breadcrumbs {
+      display: none;
+      background-color:$ym-breadcrumbs-bg-color;
+      background-image:$ym-breadcrumbs-bg-image;
+      color: $ym-breadcrumbs-color;
+      @include adjust-font-size-to($base-font-size*0.5);
+      @include adjust-leading-to(2);
+      a {
+      @include link-colors(
+        $normal: $ym-breadcrumbs-link-color,
+        $hover: $ym-breadcrumbs-link-color-hover,
+        $active: $ym-breadcrumbs-link-color-active,
+        $visited: $ym-breadcrumbs-link-color-visited,
+        $focus: $ym-breadcrumbs-link-color-focus
+      );
+      }
+		}
+
+
+  #teaser {
+    @include background_base($ym-teaser-bg-color);
+    @include rhythm(0,1,0,0);
+    border-bottom: 0px $ym-teaser-border-color solid;
+  }
+
+	#main {
+    // background-color:$ym-main-bg-color;
+    color: $ym-main-color;
+    @include rhythm(0,1,1,0);
+	}
+
+	footer {
+	  border-top: 2px solid darken($ym-footer-border-color, 10%);
+	  background-color: $ym-footer-bg-color;
+	  color: $ym-footer-color;
+	  margin: 0;
+    @if $fullpage == false {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+    @include rhythm( 0,1,1,0);
+		p {
+		  
+    @include rhythm( 0,0,0,1);
+    }
+    .ym-wbox {
+      background: transparent !important;
+    }
+    #copyright {
+      @include adjust-font-size-to($base-font-size*0.75);
+    }
+    table {
+      caption {
+        font-family: Verdana;
+        font-variant: normal;
+        text-align: left;
+        padding-left: 5px;
+      }
+    }
+	}
+
+  figure img, video, object {
+       max-width: 100%;
+       height: auto;
+       width: auto;
+  }
+  
+  .ym-gbox {
+    padding-left: 0;
+    padding-right: 0;
+    
+  }
+  .ym-gl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .download-link-wrap {
+    text-align: left;
+    width: 110px;
+    margin-left: 0;
+    @include adjust-font-size-to($base-font-size*0.8,1);
+    
+  } 
+  .tx_feuserquestionaire-image {
+    display: inline-block;
+    float: left;
+  }
+  textarea.csv {
+    width: 100% !important;
+  }
+  
+  div.csc-default {
+    @include rhythm(0,0,0,1);
+  }
+  
+  ul.list-unfinished-questionaires {
+    // @include pretty-bullets("error.png");
+  }
+  // SPALTENAUFTEILUNG 312
+  // @include columns-312($fullpage);
+  
+#main .ym-wbox {
+  // background: #fff;
+  padding: 0 0 0 0
+}
+.ym-231 {
+  
+  &.normal-right {
+    .ym-col1 { 
+      width: 25%; float: right; 
+      background-color:$ym-col1-bg-color;
+      color: $ym-col1-color;
+      } /* right column */
+    
+    .ym-col2 {display: none; } /* left column */
+    
+    .ym-col3 { margin-left: 0; margin-right: 25%; 
+      background-color:$ym-col3-bg-color;
+      color: $ym-col3-color;
+      overflow: hidden;
+      } /* center column */
+    .ym-cbox-left {
+      padding: 0 2em 2em 0;
+      border-right: 1px dotted #ddd;
+      
+      section {
+        background: #fff !important;
+        padding: 0 12px;
+        @include rhythm(0,0,0,1);
+        
+        h4 {
+          margin: 0;
+          background: rgba(0,0,0,0);
+          color: #646464;
+          @include rhythm(0,0,0.5,0);
+        }
+      }
+      }
+    .ym-cbox-right {
+      padding: 0 0.5em 0 2em;
+      }
+    }
+    
+  &.normal {
+    .ym-col1 {
+      display: none;
+    } 
+    .ym-col3 {
+      width: 100%;
+      margin: 0;
+    } 
+  }
+  }
+}
